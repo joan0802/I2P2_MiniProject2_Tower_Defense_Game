@@ -16,6 +16,8 @@ public:
 	const float Min = 0;
 	const float Max = 1;
 	bool Down = false;
+	//bool mouseIn = false;
+	//bool Enabled = true;
 	Slider(float x, float y, float w, float h);
 	void Draw() const override;
 	void SetOnValueChangedCallback(std::function<void(float value)> onValueChangedCallback);
