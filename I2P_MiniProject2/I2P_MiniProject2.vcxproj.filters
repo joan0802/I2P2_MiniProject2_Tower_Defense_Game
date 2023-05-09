@@ -113,6 +113,12 @@
     <ClInclude Include="TowerDefense\DiceEnemy.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="TowerDefense\MachineGunTurret.hpp">
+      <Filter>來源檔案\標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="TowerDefense\OrangeBullet.hpp">
+      <Filter>來源檔案\標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -218,6 +224,12 @@
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
     <ClCompile Include="TowerDefense\DiceEnemy.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\MachineGunTurret.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\OrangeBullet.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
   </ItemGroup>

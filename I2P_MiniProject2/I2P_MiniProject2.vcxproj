@@ -168,6 +168,8 @@
     <ClInclude Include="TowerDefense\Label.hpp" />
     <ClInclude Include="TowerDefense\LOG.hpp" />
     <ClInclude Include="TowerDefense\LoseScene.hpp" />
+    <ClInclude Include="TowerDefense\MachineGunTurret.hpp" />
+    <ClInclude Include="TowerDefense\OrangeBullet.hpp" />
     <ClInclude Include="TowerDefense\Plane.hpp" />
     <ClInclude Include="TowerDefense\PlayScene.hpp" />
     <ClInclude Include="TowerDefense\PlugGunTurret.hpp" />
@@ -206,7 +208,9 @@
     <ClCompile Include="TowerDefense\Label.cpp" />
     <ClCompile Include="TowerDefense\LOG.cpp" />
     <ClCompile Include="TowerDefense\LoseScene.cpp" />
+    <ClCompile Include="TowerDefense\MachineGunTurret.cpp" />
     <ClCompile Include="TowerDefense\main.cpp" />
+    <ClCompile Include="TowerDefense\OrangeBullet.cpp" />
     <ClCompile Include="TowerDefense\Plane.cpp" />
     <ClCompile Include="TowerDefense\PlayScene.cpp" />
     <ClCompile Include="TowerDefense\PlugGunTurret.cpp" />
