@@ -5,117 +5,15 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="來源檔案\資源檔">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="來源檔案\標頭檔">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="來源檔案\資源檔">
+      <UniqueIdentifier>{ec95dbc3-44b2-4756-aec8-dd1bc10360c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TowerDefense\Allegro5Exception.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\AudioHelper.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Bullet.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Collider.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\DirtyEffect.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Enemy.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\ExplosionEffect.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\GameEngine.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Group.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\IControl.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Image.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\ImageButton.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\IObject.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\IScene.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Label.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\LOG.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\LoseScene.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\main.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Plane.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\PlayScene.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\PlugGunTurret.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Point.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\RedNormalEnemy.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Resources.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Slider.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Sprite.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\StageSelectScene.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\StartScene.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\Turret.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\TurretButton.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\WinScene.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\WoodBullet.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="TowerDefense\ViewController.h">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClInclude>
     <ClInclude Include="TowerDefense\WoodBullet.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
@@ -209,14 +107,112 @@
     <ClInclude Include="TowerDefense\Allegro5Exception.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="TowerDefense\SettingsScene.hpp">
+      <Filter>來源檔案\標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="TowerDefense\NTHU_I2P_MiniProject2.entitlements">
-      <Filter>來源檔案\資源檔</Filter>
-    </None>
-    <None Include="TowerDefense\ViewController.m">
-      <Filter>來源檔案\資源檔</Filter>
-    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TowerDefense\Allegro5Exception.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\AudioHelper.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Bullet.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Collider.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\DirtyEffect.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Enemy.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\ExplosionEffect.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\GameEngine.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Group.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\IControl.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Image.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\ImageButton.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\IObject.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\IScene.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Label.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\LOG.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\LoseScene.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\main.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Plane.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\PlayScene.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\PlugGunTurret.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Point.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\RedNormalEnemy.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Resources.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\SettingsScene.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Slider.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Sprite.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\StageSelectScene.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\StartScene.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Turret.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\TurretButton.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\WinScene.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\WoodBullet.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

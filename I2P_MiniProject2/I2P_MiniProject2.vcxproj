@@ -150,6 +150,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TowerDefense\Allegro5Exception.hpp" />
+    <ClInclude Include="TowerDefense\AudioHelper.hpp" />
+    <ClInclude Include="TowerDefense\Bullet.hpp" />
+    <ClInclude Include="TowerDefense\Collider.hpp" />
+    <ClInclude Include="TowerDefense\DirtyEffect.hpp" />
+    <ClInclude Include="TowerDefense\Enemy.hpp" />
+    <ClInclude Include="TowerDefense\ExplosionEffect.hpp" />
+    <ClInclude Include="TowerDefense\GameEngine.hpp" />
+    <ClInclude Include="TowerDefense\Group.hpp" />
+    <ClInclude Include="TowerDefense\IControl.hpp" />
+    <ClInclude Include="TowerDefense\Image.hpp" />
+    <ClInclude Include="TowerDefense\ImageButton.hpp" />
+    <ClInclude Include="TowerDefense\IObject.hpp" />
+    <ClInclude Include="TowerDefense\IScene.hpp" />
+    <ClInclude Include="TowerDefense\Label.hpp" />
+    <ClInclude Include="TowerDefense\LOG.hpp" />
+    <ClInclude Include="TowerDefense\LoseScene.hpp" />
+    <ClInclude Include="TowerDefense\Plane.hpp" />
+    <ClInclude Include="TowerDefense\PlayScene.hpp" />
+    <ClInclude Include="TowerDefense\PlugGunTurret.hpp" />
+    <ClInclude Include="TowerDefense\Point.hpp" />
+    <ClInclude Include="TowerDefense\RedNormalEnemy.hpp" />
+    <ClInclude Include="TowerDefense\Resources.hpp" />
+    <ClInclude Include="TowerDefense\SettingsScene.hpp" />
+    <ClInclude Include="TowerDefense\Slider.hpp" />
+    <ClInclude Include="TowerDefense\Sprite.hpp" />
+    <ClInclude Include="TowerDefense\StageSelectScene.hpp" />
+    <ClInclude Include="TowerDefense\StartScene.hpp" />
+    <ClInclude Include="TowerDefense\Turret.hpp" />
+    <ClInclude Include="TowerDefense\TurretButton.hpp" />
+    <ClInclude Include="TowerDefense\WinScene.hpp" />
+    <ClInclude Include="TowerDefense\WoodBullet.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="TowerDefense\Allegro5Exception.cpp" />
     <ClCompile Include="TowerDefense\AudioHelper.cpp" />
     <ClCompile Include="TowerDefense\Bullet.cpp" />
@@ -174,6 +211,7 @@
     <ClCompile Include="TowerDefense\Point.cpp" />
     <ClCompile Include="TowerDefense\RedNormalEnemy.cpp" />
     <ClCompile Include="TowerDefense\Resources.cpp" />
+    <ClCompile Include="TowerDefense\SettingsScene.cpp" />
     <ClCompile Include="TowerDefense\Slider.cpp" />
     <ClCompile Include="TowerDefense\Sprite.cpp" />
     <ClCompile Include="TowerDefense\StageSelectScene.cpp" />
@@ -182,45 +220,6 @@
     <ClCompile Include="TowerDefense\TurretButton.cpp" />
     <ClCompile Include="TowerDefense\WinScene.cpp" />
     <ClCompile Include="TowerDefense\WoodBullet.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="TowerDefense\Allegro5Exception.hpp" />
-    <ClInclude Include="TowerDefense\AudioHelper.hpp" />
-    <ClInclude Include="TowerDefense\Bullet.hpp" />
-    <ClInclude Include="TowerDefense\Collider.hpp" />
-    <ClInclude Include="TowerDefense\DirtyEffect.hpp" />
-    <ClInclude Include="TowerDefense\Enemy.hpp" />
-    <ClInclude Include="TowerDefense\ExplosionEffect.hpp" />
-    <ClInclude Include="TowerDefense\GameEngine.hpp" />
-    <ClInclude Include="TowerDefense\Group.hpp" />
-    <ClInclude Include="TowerDefense\IControl.hpp" />
-    <ClInclude Include="TowerDefense\Image.hpp" />
-    <ClInclude Include="TowerDefense\ImageButton.hpp" />
-    <ClInclude Include="TowerDefense\IObject.hpp" />
-    <ClInclude Include="TowerDefense\IScene.hpp" />
-    <ClInclude Include="TowerDefense\Label.hpp" />
-    <ClInclude Include="TowerDefense\LOG.hpp" />
-    <ClInclude Include="TowerDefense\LoseScene.hpp" />
-    <ClInclude Include="TowerDefense\Plane.hpp" />
-    <ClInclude Include="TowerDefense\PlayScene.hpp" />
-    <ClInclude Include="TowerDefense\PlugGunTurret.hpp" />
-    <ClInclude Include="TowerDefense\Point.hpp" />
-    <ClInclude Include="TowerDefense\RedNormalEnemy.hpp" />
-    <ClInclude Include="TowerDefense\Resources.hpp" />
-    <ClInclude Include="TowerDefense\Slider.hpp" />
-    <ClInclude Include="TowerDefense\Sprite.hpp" />
-    <ClInclude Include="TowerDefense\StageSelectScene.hpp" />
-    <ClInclude Include="TowerDefense\StartScene.hpp" />
-    <ClInclude Include="TowerDefense\Turret.hpp" />
-    <ClInclude Include="TowerDefense\TurretButton.hpp" />
-    <ClInclude Include="TowerDefense\ViewController.h" />
-    <ClInclude Include="TowerDefense\WinScene.hpp" />
-    <ClInclude Include="TowerDefense\WoodBullet.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="TowerDefense\NTHU_I2P_MiniProject2.entitlements" />
-    <None Include="TowerDefense\ViewController.m" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
