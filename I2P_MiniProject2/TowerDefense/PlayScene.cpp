@@ -27,6 +27,7 @@
 #include "Turret.hpp"
 #include "TurretButton.hpp"
 #include "LOG.hpp"
+#include "DiceEnemy.hpp"
 
 bool PlayScene::DebugMode = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
@@ -159,6 +160,9 @@ void PlayScene::Update(float deltaTime) {
 		switch (current.first) {
 		case 1:
 			EnemyGroup->AddNewObject(enemy = new RedNormalEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
+			break;
+		case 2:
+			EnemyGroup->AddNewObject(enemy = new DiceEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
 			break;
 		// TODO 2 (2/3): You need to modify 'resources/enemy1.txt', or 'resources/enemy2.txt' to spawn the new enemy.
 		// The format is "[EnemyId] [TimeDelay] [Repeat]".

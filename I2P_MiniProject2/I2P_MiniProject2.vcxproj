@@ -154,6 +154,7 @@
     <ClInclude Include="TowerDefense\AudioHelper.hpp" />
     <ClInclude Include="TowerDefense\Bullet.hpp" />
     <ClInclude Include="TowerDefense\Collider.hpp" />
+    <ClInclude Include="TowerDefense\DiceEnemy.hpp" />
     <ClInclude Include="TowerDefense\DirtyEffect.hpp" />
     <ClInclude Include="TowerDefense\Enemy.hpp" />
     <ClInclude Include="TowerDefense\ExplosionEffect.hpp" />
@@ -191,6 +192,7 @@
     <ClCompile Include="TowerDefense\AudioHelper.cpp" />
     <ClCompile Include="TowerDefense\Bullet.cpp" />
     <ClCompile Include="TowerDefense\Collider.cpp" />
+    <ClCompile Include="TowerDefense\DiceEnemy.cpp" />
     <ClCompile Include="TowerDefense\DirtyEffect.cpp" />
     <ClCompile Include="TowerDefense\Enemy.cpp" />
     <ClCompile Include="TowerDefense\ExplosionEffect.cpp" />
