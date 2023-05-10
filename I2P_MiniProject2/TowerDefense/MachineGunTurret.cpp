@@ -22,6 +22,6 @@ void MachineGunTurret::CreateBullet() {
     Engine::Point normalized = diff.Normalize();
     // Change bullet position to the front of the gun barrel.
     getPlayScene()->BulletGroup->AddNewObject(new OrangeBullet(Position + normalized * 36, diff, rotation, this));
-    // TODO 4 (2/2): Add a ShootEffect here. Remember you need to include the class.
+    // (2/2): Add a ShootEffect here. Remember you need to include the class.
     AudioHelper::PlayAudio("gun.wav");
 }

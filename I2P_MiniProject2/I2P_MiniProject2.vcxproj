@@ -177,6 +177,7 @@
     <ClInclude Include="TowerDefense\RedNormalEnemy.hpp" />
     <ClInclude Include="TowerDefense\Resources.hpp" />
     <ClInclude Include="TowerDefense\SettingsScene.hpp" />
+    <ClInclude Include="TowerDefense\ShootEffect.hpp" />
     <ClInclude Include="TowerDefense\Slider.hpp" />
     <ClInclude Include="TowerDefense\Sprite.hpp" />
     <ClInclude Include="TowerDefense\StageSelectScene.hpp" />
@@ -218,6 +219,7 @@
     <ClCompile Include="TowerDefense\RedNormalEnemy.cpp" />
     <ClCompile Include="TowerDefense\Resources.cpp" />
     <ClCompile Include="TowerDefense\SettingsScene.cpp" />
+    <ClCompile Include="TowerDefense\ShootEffect.cpp" />
     <ClCompile Include="TowerDefense\Slider.cpp" />
     <ClCompile Include="TowerDefense\Sprite.cpp" />
     <ClCompile Include="TowerDefense\StageSelectScene.cpp" />
