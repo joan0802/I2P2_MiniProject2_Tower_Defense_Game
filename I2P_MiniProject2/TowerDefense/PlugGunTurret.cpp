@@ -26,6 +26,6 @@ void PlugGunTurret::CreateBullet() {
     // Change bullet position to the front of the gun barrel.
     getPlayScene()->BulletGroup->AddNewObject(new WoodBullet(Position + normalized * 36, diff, rotation, this));
     // TODO 4 (2/2): Add a ShootEffect here. Remember you need to include the class.
-	getPlayScene()->EffectGroup->AddNewObject(new ShootEffect(Position.x+Anchor.x, Position.y+Anchor.y));
+	getPlayScene()->EffectGroup->AddNewObject(new ShootEffect(Position.x + diff.x*36, Position.y + diff.y*36));
 	AudioHelper::PlayAudio("gun.wav");
 }
