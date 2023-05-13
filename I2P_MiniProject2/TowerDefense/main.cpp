@@ -20,6 +20,6 @@ int main(int argc, char **argv) {
 	game.AddNewScene("win", new WinScene());
     game.AddNewScene("start-scene", new StartScene());
 	game.AddNewScene("settings", new SettingsScene());
-	game.Start("stage-select", 60, 1600, 832);
+	game.Start("start-scene", 60, 1600, 832);
 	return 0;
 }
