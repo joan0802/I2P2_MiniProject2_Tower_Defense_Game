@@ -16,6 +16,7 @@
 #include "LOG.hpp"
 #include "PlayScene.hpp"
 #include "Turret.hpp"
+#include "EnemyBoss.hpp"
 
 PlayScene* Enemy::getPlayScene() {
 	return dynamic_cast<PlayScene*>(Engine::GameEngine::GetInstance().GetActiveScene());
@@ -31,8 +32,8 @@ void Enemy::OnExplode() {
 		getPlayScene()->GroundEffectGroup->AddNewObject(new DirtyEffect("play/dirty-" + std::to_string(distId(rng)) + ".png", dist(rng), Position.x, Position.y));
 	}
 }
-Enemy::Enemy(std::string img, float x, float y, float radius, float speed, float hp, int money) :
-	Engine::Sprite(img, x, y), speed(speed), hp(hp), money(money), maxSpeed(speed), slowRemainTime(0) {
+Enemy::Enemy(std::string img, float x, float y, float radius, float speed, float hp, int money, int type) :
+	Engine::Sprite(img, x, y), speed(speed), hp(hp), money(money), maxSpeed(speed), slowRemainTime(0), type(type) {
 	CollisionRadius = radius;
 	reachEndTime = 0;
 }
@@ -47,6 +48,10 @@ void Enemy::Hit(float damage) {
 			it->Target = nullptr;
 		getPlayScene()->EarnMoney(money);
 		getPlayScene()->EnemyGroup->RemoveObject(objectIterator);
+		if (type == 2) {
+			Enemy* enemy;
+			getPlayScene()->EnemyGroup->AddNewObject(enemy = new DiceEnemy(Position.x, Position.y));
+		}
 		AudioHelper::PlayAudio("explosion.wav");
 	}
 }

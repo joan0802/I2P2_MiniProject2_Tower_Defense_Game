@@ -41,9 +41,6 @@
     <ClInclude Include="TowerDefense\Resources.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="TowerDefense\RedNormalEnemy.hpp">
-      <Filter>來源檔案\標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="TowerDefense\Point.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
@@ -110,9 +107,6 @@
     <ClInclude Include="TowerDefense\SettingsScene.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="TowerDefense\DiceEnemy.hpp">
-      <Filter>來源檔案\標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="TowerDefense\MachineGunTurret.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
@@ -120,6 +114,9 @@
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="TowerDefense\ShootEffect.hpp">
+      <Filter>來源檔案\標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="TowerDefense\EnemyBoss.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
@@ -193,9 +190,6 @@
     <ClCompile Include="TowerDefense\Point.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
-    <ClCompile Include="TowerDefense\RedNormalEnemy.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
     <ClCompile Include="TowerDefense\Resources.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
@@ -226,9 +220,6 @@
     <ClCompile Include="TowerDefense\WoodBullet.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
-    <ClCompile Include="TowerDefense\DiceEnemy.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
     <ClCompile Include="TowerDefense\MachineGunTurret.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
@@ -236,6 +227,9 @@
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
     <ClCompile Include="TowerDefense\ShootEffect.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\EnemyBoss.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
   </ItemGroup>

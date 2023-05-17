@@ -21,14 +21,14 @@
 #include "MachineGunTurret.hpp"
 #include "Plane.hpp"
 // Enemy
-#include "RedNormalEnemy.hpp"
+#include "EnemyBoss.hpp"
 #include "PlayScene.hpp"
 #include "Resources.hpp"
 #include "Sprite.hpp"
 #include "Turret.hpp"
 #include "TurretButton.hpp"
 #include "LOG.hpp"
-#include "DiceEnemy.hpp"
+
 
 bool PlayScene::DebugMode = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
@@ -83,6 +83,7 @@ void PlayScene::Initialize() {
         bgmInstance = AudioHelper::PlaySample("play.ogg", true, 0.0);
 }
 void PlayScene::Terminate() {
+	AudioHelper::StopSample(bgmInstance);
 	AudioHelper::StopBGM(bgmId);
 	AudioHelper::StopSample(deathBGMInstance);
 	deathBGMInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
@@ -139,16 +140,6 @@ void PlayScene::Update(float deltaTime) {
 		ticks += deltaTime;
 		if (enemyWaveData.empty()) {
 			if (EnemyGroup->GetObjects().empty()) {
-				// Free resources.
-				/*delete TileMapGroup;
-				delete GroundEffectGroup;
-				delete DebugIndicatorGroup;
-				delete TowerGroup;
-				delete EnemyGroup;
-				delete BulletGroup;
-				delete EffectGroup;
-				delete UIGroup;
-				delete imgTarget;*/
                 Engine::GameEngine::GetInstance().ChangeScene("win");
 			}
 			continue;
@@ -161,11 +152,14 @@ void PlayScene::Update(float deltaTime) {
 		const Engine::Point SpawnCoordinate = Engine::Point(SpawnGridPoint.x * BlockSize + BlockSize / 2, SpawnGridPoint.y * BlockSize + BlockSize / 2);
 		Enemy* enemy;
 		switch (current.first) {
-		case 1:
+		case 0:
 			EnemyGroup->AddNewObject(enemy = new RedNormalEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
 			break;
-		case 2:
+		case 1:
 			EnemyGroup->AddNewObject(enemy = new DiceEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
+			break;
+		case 2:
+			EnemyGroup->AddNewObject(enemy = new TwoDiceEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
 			break;
 		// TODO 2 (2/3): You need to modify 'resources/enemy1.txt', or 'resources/enemy2.txt' to spawn the new enemy.
 		// The format is "[EnemyId] [TimeDelay] [Repeat]".
