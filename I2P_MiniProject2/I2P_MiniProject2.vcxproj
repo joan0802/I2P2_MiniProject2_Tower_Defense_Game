@@ -156,7 +156,7 @@
     <ClInclude Include="TowerDefense\Collider.hpp" />
     <ClInclude Include="TowerDefense\DirtyEffect.hpp" />
     <ClInclude Include="TowerDefense\Enemy.hpp" />
-    <ClInclude Include="TowerDefense\EnemyBoss.hpp" />
+    <ClInclude Include="TowerDefense\EnemySelect.hpp" />
     <ClInclude Include="TowerDefense\ExplosionEffect.hpp" />
     <ClInclude Include="TowerDefense\GameEngine.hpp" />
     <ClInclude Include="TowerDefense\Group.hpp" />
@@ -196,7 +196,7 @@
     <ClCompile Include="TowerDefense\Collider.cpp" />
     <ClCompile Include="TowerDefense\DirtyEffect.cpp" />
     <ClCompile Include="TowerDefense\Enemy.cpp" />
-    <ClCompile Include="TowerDefense\EnemyBoss.cpp" />
+    <ClCompile Include="TowerDefense\EnemySelect.cpp" />
     <ClCompile Include="TowerDefense\ExplosionEffect.cpp" />
     <ClCompile Include="TowerDefense\GameEngine.cpp" />
     <ClCompile Include="TowerDefense\Group.cpp" />

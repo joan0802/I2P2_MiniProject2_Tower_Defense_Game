@@ -1,5 +1,5 @@
-#ifndef ENEMYBOSS_HPP
-#define ENEMYBOSS_HPP
+#ifndef ENEMYSELECT_HPP
+#define ENEMYSELECT_HPP
 #include "Enemy.hpp"
 
 class RedNormalEnemy : public Enemy {

@@ -4,7 +4,7 @@
 #include <random>
 #include <string>
 #include <vector>
-
+#include "Allegro5Exception.hpp"
 #include "AudioHelper.hpp"
 #include "Bullet.hpp"
 #include "DirtyEffect.hpp"
@@ -16,7 +16,9 @@
 #include "LOG.hpp"
 #include "PlayScene.hpp"
 #include "Turret.hpp"
-#include "EnemyBoss.hpp"
+#include "EnemySelect.hpp"
+
+
 
 PlayScene* Enemy::getPlayScene() {
 	return dynamic_cast<PlayScene*>(Engine::GameEngine::GetInstance().GetActiveScene());
@@ -42,16 +44,18 @@ void Enemy::Hit(float damage) {
 	if (hp <= 0) {
 		OnExplode();
 		// Remove all turret's reference to target.
+		Engine::LOG() << "hp <= 0";
+		
 		for (auto& it: lockedTurrets)
 			it->Target = nullptr;
 		for (auto& it: lockedBullets)
 			it->Target = nullptr;
+		if (type == 2) {
+			Engine::LOG() << "Type == 2";
+			getPlayScene()->GenerateEnemy(Position.x, Position.y, 1);
+		}
 		getPlayScene()->EarnMoney(money);
 		getPlayScene()->EnemyGroup->RemoveObject(objectIterator);
-		if (type == 2) {
-			Enemy* enemy;
-			getPlayScene()->EnemyGroup->AddNewObject(enemy = new DiceEnemy(Position.x, Position.y));
-		}
 		AudioHelper::PlayAudio("explosion.wav");
 	}
 }

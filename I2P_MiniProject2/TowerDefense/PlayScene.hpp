@@ -77,6 +77,7 @@ public:
 	void EarnMoney(int money);
 	void ReadMap();
 	void ReadEnemyWave();
+	void GenerateEnemy(int x, int y, int type);
 	void ConstructUI();
 	void ConstructButton(int id, std::string sprite, int price);
 	void UIBtnClicked(int id);

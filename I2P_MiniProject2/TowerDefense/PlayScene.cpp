@@ -21,7 +21,7 @@
 #include "MachineGunTurret.hpp"
 #include "Plane.hpp"
 // Enemy
-#include "EnemyBoss.hpp"
+#include "EnemySelect.hpp"
 #include "PlayScene.hpp"
 #include "Resources.hpp"
 #include "Sprite.hpp"
@@ -193,6 +193,28 @@ void PlayScene::Draw() const {
 		}
 	}
 }
+
+void PlayScene::GenerateEnemy(int x, int y, int type) {
+	//const Engine::Point SpawnCoordinate = Engine::Point(SpawnGridPoint.x , SpawnGridPoint.y * BlockSize + BlockSize / 2);
+	Enemy* enemy = NULL;
+	switch (type) {
+		case 0:
+			EnemyGroup->AddNewObject(enemy = new RedNormalEnemy(x, y));
+			break;
+		case 1:
+			EnemyGroup->AddNewObject(enemy = new DiceEnemy(x, y));
+			break;
+		case 2:
+			EnemyGroup->AddNewObject(enemy = new TwoDiceEnemy(x, y));
+			break;
+		default:
+			break;
+	}
+	enemy->UpdatePath(mapDistance);
+	// Compensate the time lost.
+	enemy->Update(ticks);
+}
+
 void PlayScene::OnMouseDown(int button, int mx, int my) {
 	if ((button & 1) && !imgTarget->Visible && preview) {
 		// Cancel turret construct.
@@ -249,6 +271,9 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 
 			mapState[y][x] = TILE_OCCUPIED;
 			OnMouseMove(mx, my);
+		}
+		else {
+			Engine::LOG() << "OCCUPIED";
 		}
 	}
 }
@@ -365,6 +390,7 @@ void PlayScene::ReadEnemyWave() {
 	}
 	fin.close();
 }
+
 void PlayScene::ConstructUI() {
 	// Background
 	UIGroup->AddNewObject(new Engine::Image("play/sand.png", 1280, 0, 320, 832));
