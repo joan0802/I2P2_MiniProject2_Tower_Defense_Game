@@ -242,7 +242,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 	const int x = mx / BlockSize;
 	const int y = my / BlockSize;
 	if (button & 1) {
-		if (mapState[y][x] != TILE_OCCUPIED) {
+		if (mapState[y][x] == TILE_DIRT || mapState[y][x] == TILE_FLOOR) {
 			if (!preview)
 				return;
 			// Check if valid.
@@ -258,6 +258,14 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			preview->GetObjectIterator()->first = false;
 			UIGroup->RemoveObject(preview->GetObjectIterator());
 			// Construct real turret.
+
+			if (preview->type == 1) {
+				mapState[y][x] = TILE_MACHINEGUN;
+			}
+			else {
+				mapState[y][x] = TILE_OCCUPIED;
+			}
+
 			preview->Position.x = x * BlockSize + BlockSize / 2;
 			preview->Position.y = y * BlockSize + BlockSize / 2;
 			preview->Enabled = true;
@@ -268,12 +276,32 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			preview->Update(0);
 			// Remove Preview.
 			preview = nullptr;
-
-			mapState[y][x] = TILE_OCCUPIED;
 			OnMouseMove(mx, my);
 		}
-		else {
-			Engine::LOG() << "OCCUPIED";
+		else if(mapState[y][x] == TILE_MACHINEGUN){
+			if (preview->type == 1) {
+				Engine::LOG() << "OCCUPIED";
+				EarnMoney(-preview->GetPrice());
+				// Remove Preview.
+				preview->GetObjectIterator()->first = false;
+				UIGroup->RemoveObject(preview->GetObjectIterator());
+				// Construct real turret.
+
+				mapState[y][x] = TILE_OCCUPIED;
+
+				preview->Position.x = x * BlockSize + BlockSize / 2;
+				preview->Position.y = y * BlockSize + BlockSize / 2;
+				preview->Enabled = true;
+				preview->Preview = false;
+				preview->Tint = al_map_rgba(255, 255, 255, 255);
+
+				TowerGroup->AddNewObject(new DoubleMachineGunTurret(preview->Position.x, preview->Position.y));
+				// To keep responding when paused.
+				preview->Update(0);
+				// Remove Preview.
+				preview = nullptr;
+				OnMouseMove(mx, my);
+			}
 		}
 	}
 }

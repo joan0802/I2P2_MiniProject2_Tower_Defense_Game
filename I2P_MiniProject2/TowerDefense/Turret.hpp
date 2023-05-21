@@ -25,7 +25,8 @@ public:
     bool Enabled = true;
     bool Preview = false;
     Enemy* Target = nullptr;
-    Turret(std::string imgBase, std::string imgTurret, float x, float y, float radius, int price, float coolDown);
+    int type;
+    Turret(std::string imgBase, std::string imgTurret, float x, float y, float radius, int price, float coolDown, int type);
     void Update(float deltaTime) override;
     void Draw() const override;
 	int GetPrice() const;
