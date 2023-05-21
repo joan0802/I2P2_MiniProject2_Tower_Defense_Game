@@ -295,6 +295,11 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				preview->Preview = false;
 				preview->Tint = al_map_rgba(255, 255, 255, 255);
 
+				for (auto turret : TowerGroup->GetObjects()) {
+					if (turret->Position.x == preview->Position.x && turret->Position.y == preview->Position.y) {
+						TowerGroup->RemoveObject(turret->GetObjectIterator());
+					}
+				}
 				TowerGroup->AddNewObject(new DoubleMachineGunTurret(preview->Position.x, preview->Position.y));
 				// To keep responding when paused.
 				preview->Update(0);
