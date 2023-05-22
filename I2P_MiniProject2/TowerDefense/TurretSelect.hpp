@@ -29,4 +29,11 @@ public:
     RotateTurret(float x, float y);
     void CreateBullet() override;
 };
+
+class Shovel : public Turret {
+public:
+    static const int Price;
+    Shovel(float x, float y);
+    void CreateBullet() override;
+};
 #endif // PLUGGUNTURRET_HPP

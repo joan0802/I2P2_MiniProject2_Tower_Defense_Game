@@ -10,6 +10,7 @@ public:
 class TwoDiceEnemy : public Enemy {
 public:
     TwoDiceEnemy(int x, int y);
+    //void OnExplode() override;
 };
 
 class DiceEnemy : public Enemy {

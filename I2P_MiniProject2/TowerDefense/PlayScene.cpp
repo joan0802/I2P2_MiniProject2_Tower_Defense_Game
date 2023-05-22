@@ -8,6 +8,7 @@
 #include <string>
 #include <memory>
 
+//#include "Shovel.hpp"
 #include "AudioHelper.hpp"
 #include "DirtyEffect.hpp"
 #include "Enemy.hpp"
@@ -30,6 +31,7 @@
 
 
 bool PlayScene::DebugMode = false;
+bool PlayScene::RemoveTurret = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
 const int PlayScene::BlockSize = 64;
@@ -211,7 +213,7 @@ void PlayScene::GenerateEnemy(int x, int y, int type) {
 	}
 	enemy->UpdatePath(mapDistance);
 	// Compensate the time lost.
-	enemy->Update(ticks);
+	//enemy->Update(ticks);
 }
 
 void PlayScene::OnMouseDown(int button, int mx, int my) {
@@ -241,7 +243,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 	const int x = mx / BlockSize;
 	const int y = my / BlockSize;
 	if (button & 1) {
-		if (mapState[y][x] == TILE_DIRT || mapState[y][x] == TILE_FLOOR) {
+		if ((mapState[y][x] == TILE_DIRT || mapState[y][x] == TILE_FLOOR) && RemoveTurret == false) {
 			if (!preview)
 				return;
 			// Check if valid.
@@ -277,7 +279,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			preview = nullptr;
 			OnMouseMove(mx, my);
 		}
-		else if(mapState[y][x] == TILE_MACHINEGUN){
+		else if(mapState[y][x] == TILE_MACHINEGUN && RemoveTurret == false){
 			if (preview->type == 1) {
 				Engine::LOG() << "OCCUPIED";
 				EarnMoney(-preview->GetPrice());
@@ -306,6 +308,23 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				preview = nullptr;
 				OnMouseMove(mx, my);
 			}
+		}
+		else if(RemoveTurret == true){
+			Engine::LOG() << ("Remove Turret!");
+			for (auto turret : TowerGroup->GetObjects()) {
+				if (turret->Position.x  == preview->Position.x && turret->Position.y  == preview->Position.y) {
+					Engine::LOG() << ("Find the turret!");
+					TowerGroup->RemoveObject(turret->GetObjectIterator());
+					//EarnMoney(turret->GetObjectIterator);
+					break;
+				}
+			}
+			RemoveTurret = false;
+			mapState[y][x] = TILE_FLOOR;
+			preview->Update(0);
+			// Remove Preview.
+			preview = nullptr;
+			OnMouseMove(mx, my);
 		}
 	}
 }
@@ -432,7 +451,9 @@ void PlayScene::ConstructUI() {
 	UIGroup->AddNewObject(UILives = new Engine::Label(std::string("Life ") + std::to_string(lives), "pirulen.ttf", 24, 1294, 88));
 	// Buttons
 	ConstructButton(0, "play/turret-6.png", PlugGunTurret::Price);
-	ConstructButton(1, "play/turret-1.png", PlugGunTurret::Price);
+	ConstructButton(1, "play/turret-1.png", MachineGunTurret::Price);
+	ConstructButton(2, "play/turret-9.png", RotateTurret::Price);
+	ConstructButton(3, "play/shovel.png", 0);
 	// TODO 3 (3/5): Create a button to support constructing the new turret.
     
 	int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
@@ -445,6 +466,12 @@ void PlayScene::ConstructUI() {
 
 void PlayScene::ConstructButton(int id, std::string sprite, int price) {
 	TurretButton* btn;
+	/*if (id == 3) {
+		btn = new TurretButton("play/floor.png", "play/dirt.png",
+			Engine::Sprite("play/tower-floor.png", 1294 + id * 76, 136, 0, 0, 0, 0),
+			Engine::Sprite(sprite, 1294 + id * 76, 136 - 8, 0, 0, 0, 0)
+			, 1294 + id * 76, 136, price);
+	}*/
 	btn = new TurretButton("play/floor.png", "play/dirt.png",
 		Engine::Sprite("play/tower-base.png", 1294 + id * 76, 136, 0, 0, 0, 0),
 		Engine::Sprite(sprite, 1294 + id * 76, 136 - 8, 0, 0, 0, 0)
@@ -461,8 +488,14 @@ void PlayScene::UIBtnClicked(int id) {
     }
 	if (id == 0 && money >= PlugGunTurret::Price) 
 		preview = new PlugGunTurret(0, 0);
-	if (id == 1 && money >= PlugGunTurret::Price)
+	if (id == 1 && money >= MachineGunTurret::Price)
 		preview = new MachineGunTurret(0, 0);
+	if (id == 2 && money >= RotateTurret::Price)
+		preview = new RotateTurret(0, 0);
+	if (id == 3) {
+		preview = new Shovel(0, 0);
+		RemoveTurret = true;
+	}
 	// TODO 3 (4/5): On the new turret button callback, create the new turret.
 	if (!preview)
 		return;

@@ -34,6 +34,7 @@ protected:
 	int SpeedMult;
 public:
 	static bool DebugMode;
+	static bool RemoveTurret;
 	static const std::vector<Engine::Point> directions;
 	static const int MapWidth, MapHeight;
 	static const int BlockSize;

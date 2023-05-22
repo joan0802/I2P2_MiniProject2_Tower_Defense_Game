@@ -24,4 +24,10 @@ public:
     explicit FireBullet(Engine::Point position, Engine::Point forwardDirection, float rotation, Turret* parent);
     void OnExplode(Enemy* enemy) override;
 };
+
+class RotateBullet : public Bullet {
+public:
+    explicit RotateBullet(Engine::Point position, Engine::Point forwardDirection, float rotation, Turret* parent);
+    void OnExplode(Enemy* enemy) override;
+};
 #endif // WOODBULLET_HPP
