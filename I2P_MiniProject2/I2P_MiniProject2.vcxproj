@@ -168,11 +168,10 @@
     <ClInclude Include="TowerDefense\Label.hpp" />
     <ClInclude Include="TowerDefense\LOG.hpp" />
     <ClInclude Include="TowerDefense\LoseScene.hpp" />
-    <ClInclude Include="TowerDefense\MachineGunTurret.hpp" />
-    <ClInclude Include="TowerDefense\OrangeBullet.hpp" />
+    <ClInclude Include="TowerDefense\TurretSelect.hpp" />
+    <ClInclude Include="TowerDefense\BulletSelect.hpp" />
     <ClInclude Include="TowerDefense\Plane.hpp" />
     <ClInclude Include="TowerDefense\PlayScene.hpp" />
-    <ClInclude Include="TowerDefense\PlugGunTurret.hpp" />
     <ClInclude Include="TowerDefense\Point.hpp" />
     <ClInclude Include="TowerDefense\Resources.hpp" />
     <ClInclude Include="TowerDefense\SettingsScene.hpp" />
@@ -184,7 +183,6 @@
     <ClInclude Include="TowerDefense\Turret.hpp" />
     <ClInclude Include="TowerDefense\TurretButton.hpp" />
     <ClInclude Include="TowerDefense\WinScene.hpp" />
-    <ClInclude Include="TowerDefense\WoodBullet.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -208,12 +206,11 @@
     <ClCompile Include="TowerDefense\Label.cpp" />
     <ClCompile Include="TowerDefense\LOG.cpp" />
     <ClCompile Include="TowerDefense\LoseScene.cpp" />
-    <ClCompile Include="TowerDefense\MachineGunTurret.cpp" />
+    <ClCompile Include="TowerDefense\TurretSelect.cpp" />
     <ClCompile Include="TowerDefense\main.cpp" />
-    <ClCompile Include="TowerDefense\OrangeBullet.cpp" />
+    <ClCompile Include="TowerDefense\BulletSelect.cpp" />
     <ClCompile Include="TowerDefense\Plane.cpp" />
     <ClCompile Include="TowerDefense\PlayScene.cpp" />
-    <ClCompile Include="TowerDefense\PlugGunTurret.cpp" />
     <ClCompile Include="TowerDefense\Point.cpp" />
     <ClCompile Include="TowerDefense\Resources.cpp" />
     <ClCompile Include="TowerDefense\SettingsScene.cpp" />
@@ -225,7 +222,6 @@
     <ClCompile Include="TowerDefense\Turret.cpp" />
     <ClCompile Include="TowerDefense\TurretButton.cpp" />
     <ClCompile Include="TowerDefense\WinScene.cpp" />
-    <ClCompile Include="TowerDefense\WoodBullet.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

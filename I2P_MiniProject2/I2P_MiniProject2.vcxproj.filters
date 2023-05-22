@@ -14,9 +14,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TowerDefense\WoodBullet.hpp">
-      <Filter>來源檔案\標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="TowerDefense\WinScene.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
@@ -42,9 +39,6 @@
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="TowerDefense\Point.hpp">
-      <Filter>來源檔案\標頭檔</Filter>
-    </ClInclude>
-    <ClInclude Include="TowerDefense\PlugGunTurret.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="TowerDefense\PlayScene.hpp">
@@ -107,10 +101,10 @@
     <ClInclude Include="TowerDefense\SettingsScene.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="TowerDefense\MachineGunTurret.hpp">
+    <ClInclude Include="TowerDefense\TurretSelect.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="TowerDefense\OrangeBullet.hpp">
+    <ClInclude Include="TowerDefense\BulletSelect.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="TowerDefense\ShootEffect.hpp">
@@ -184,9 +178,6 @@
     <ClCompile Include="TowerDefense\PlayScene.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
-    <ClCompile Include="TowerDefense\PlugGunTurret.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
     <ClCompile Include="TowerDefense\Point.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
@@ -217,13 +208,10 @@
     <ClCompile Include="TowerDefense\WinScene.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
-    <ClCompile Include="TowerDefense\WoodBullet.cpp">
+    <ClCompile Include="TowerDefense\TurretSelect.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
-    <ClCompile Include="TowerDefense\MachineGunTurret.cpp">
-      <Filter>來源檔案\資源檔</Filter>
-    </ClCompile>
-    <ClCompile Include="TowerDefense\OrangeBullet.cpp">
+    <ClCompile Include="TowerDefense\BulletSelect.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
     <ClCompile Include="TowerDefense\ShootEffect.cpp">

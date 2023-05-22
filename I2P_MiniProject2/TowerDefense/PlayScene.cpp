@@ -17,8 +17,7 @@
 #include "Image.hpp"
 #include "Label.hpp"
 // Turret
-#include "PlugGunTurret.hpp"
-#include "MachineGunTurret.hpp"
+#include "TurretSelect.hpp"
 #include "Plane.hpp"
 // Enemy
 #include "EnemySelect.hpp"
