@@ -64,18 +64,18 @@ void Turret::Update(float deltaTime) {
 			else
 				rotation = ((abs(radian) - maxRotateRadian) * originRotation + maxRotateRadian * targetRotation) / radian;
 			// Add 90 degrees (PI/2 radian), since we assume the image is oriented upward.
-			Rotation = atan2(rotation.y, rotation.x) + ALLEGRO_PI / 2;
-			reload -= deltaTime;
+			Rotation = atan2(rotation.y, rotation.x) + ALLEGRO_PI / 2;	
 		}
+		reload -= deltaTime;
 		// Shoot reload.
 		if (reload <= 0) {
 			// shoot.
 			reload = coolDown;
 			CreateBullet();
 		}
-		else if (cnt <= 0 && type == 3) {
+		/*else if (cnt <= 0 && type == 3) {
 			CreateBullet();
-		}
+		}*/
 	}
 }
 void Turret::Draw() const {

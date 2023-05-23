@@ -38,10 +38,24 @@
 [INFO] Changed to play scene
 [INFO] Loaded Resource<image>: resources/images/play/dice-2.png
 [DEBUGGING] Move Turret!
+[DEBUGGING] 9 and 9
+[DEBUGGING] Find the turret
+[DEBUGGING] MachineGun
+[DEBUGGING] Move Turret!
 [DEBUGGING] 12 and 12
 [DEBUGGING] Find the turret
 [DEBUGGING] MachineGun
-[INFO] Loaded Resource<image>: resources/images/play/bullet-7.png
+[DEBUGGING] OCCUPIED
+[INFO] Loaded Resource<image>: resources/images/play/turret-2.png
+[DEBUGGING] Move Turret!
+[DEBUGGING] 15 and 15
+[DEBUGGING] Find the turret
+[DEBUGGING] DoubleMachineGun
+[DEBUGGING] Move Turret!
+[DEBUGGING] 12 and 12
+[DEBUGGING] Find the turret
+[DEBUGGING] DoubleMachineGun
+[INFO] Loaded Resource<image>: resources/images/play/bullet-1.png
 [INFO] Loaded Resource<audio>: resources/audios/gun.wav
 [INFO] Loaded Resource<image>: resources/images/play/dirty-2.png
 [INFO] Loaded Resource<image>: resources/images/play/explosion-1.png
@@ -55,47 +69,29 @@
 [DEBUGGING] Type == 2
 [INFO] Loaded Resource<image>: resources/images/play/dice-1.png
 [INFO] Loaded Resource<audio>: resources/audios/explosion.wav
-[DEBUGGING] Move Turret!
-[DEBUGGING] 4 and 9
-[DEBUGGING] 9 and 9
-[DEBUGGING] Find the turret
-[DEBUGGING] PlugGun
-[INFO] Loaded Resource<image>: resources/images/play/bullet-8.png
-[INFO] Loaded Resource<image>: resources/images/play/shoot-1.png
-[INFO] Loaded Resource<image>: resources/images/play/shoot-2.png
-[INFO] Loaded Resource<image>: resources/images/play/shoot-3.png
-[INFO] Loaded Resource<image>: resources/images/play/shoot-4.png
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
+[INFO] Loaded Resource<image>: resources/images/play/bullet-7.png
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
 [INFO] Loaded Resource<image>: resources/images/play/enemy-10.png
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
+[DEBUGGING] OCCUPIED
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
@@ -107,122 +103,58 @@
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] Create Bullet
+[INFO] Loaded Resource<image>: resources/images/play/bullet-11.png
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] Create Bullet
 [DEBUGGING] hp <= 0
 [DEBUGGING] Move Turret!
-[DEBUGGING] 4 and 6
-[DEBUGGING] 6 and 6
-[DEBUGGING] 6 and 6
+[DEBUGGING] 9 and 10
+[DEBUGGING] 16 and 10
+[DEBUGGING] 13 and 10
+[DEBUGGING] 10 and 10
 [DEBUGGING] Find the turret
-[DEBUGGING] MachineGun
-[DEBUGGING] OCCUPIED
-[INFO] Loaded Resource<image>: resources/images/play/turret-2.png
-[DEBUGGING] hp <= 0
-[INFO] Loaded Resource<image>: resources/images/play/bullet-1.png
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Move Turret!
-[DEBUGGING] 4 and 6
-[DEBUGGING] 6 and 6
-[DEBUGGING] Find the turret
-[DEBUGGING] PlugGun
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] OCCUPIED
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Move Turret!
-[DEBUGGING] 4 and 13
-[DEBUGGING] 15 and 13
-[DEBUGGING] 13 and 13
-[DEBUGGING] 13 and 13
-[DEBUGGING] Find the turret
-[DEBUGGING] DoubleMachineGun
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] Remove Turret!
-[DEBUGGING] 4 and 8
-[DEBUGGING] 15 and 8
-[DEBUGGING] 13 and 8
-[DEBUGGING] 8 and 8
-[DEBUGGING] Find the turret
-[DEBUGGING] Find the turret!
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] OCCUPIED
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
+[DEBUGGING] RotateGun
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
@@ -248,14 +180,31 @@
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
-[DEBUGGING] OCCUPIED
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
+[DEBUGGING] Create Bullet
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] Create Bullet
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
@@ -272,44 +221,14 @@
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
-[DEBUGGING] Remove Turret!
-[DEBUGGING] 15 and 7
-[DEBUGGING] 13 and 7
-[DEBUGGING] 9 and 7
-[DEBUGGING] 4 and 7
-[DEBUGGING] 7 and 7
-[DEBUGGING] Find the turret
-[DEBUGGING] Find the turret!
-[DEBUGGING] hp <= 0
-[DEBUGGING] Remove Turret!
-[DEBUGGING] 15 and 9
-[DEBUGGING] 13 and 9
-[DEBUGGING] 9 and 9
-[DEBUGGING] Find the turret
-[DEBUGGING] Find the turret!
-[DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
-[DEBUGGING] Type == 2
-[DEBUGGING] hp <= 0
+[INFO] Game Terminating...
 [INFO] stopped audio (sample)
 [INFO] stopped audio (bgm)
-[INFO] Loaded Resource<image>: resources/images/win/benjamin-sad.png
-[INFO] Loaded Resource<image>: resources/images/win/dirt.png scaled to 400x100
-[INFO] Loaded Resource<image>: resources/images/win/dirt.png
-[INFO] Loaded Resource<image>: resources/images/win/floor.png
-[INFO] Loaded Resource<audio>: resources/audios/win.wav
-[INFO] Changed to win scene
-[INFO] stopped audio (bgm)
-[INFO] Changed to stage-select scene
-[INFO] Game Terminating...
 [INFO] Game terminated
 [INFO] Game end
 [INFO] Destroyed Resource<image>: play/dirty-3.png
@@ -329,31 +248,23 @@
 [INFO] Destroyed Resource<image>: play/turret-6.png
 [INFO] Destroyed Resource<image>: stage-select/floor.png
 [INFO] Destroyed Resource<image>: play/floor.png?64x64
-[INFO] Destroyed Resource<image>: win/benjamin-sad.png
 [INFO] Destroyed Resource<image>: play/sand.png?320x832
 [INFO] Destroyed Resource<image>: play/floor.png
-[INFO] Destroyed Resource<image>: play/shoot-2.png
 [INFO] Destroyed Resource<image>: play/turret-9.png
 [INFO] Destroyed Resource<image>: play/shovel.png
-[INFO] Destroyed Resource<image>: win/dirt.png
 [INFO] Destroyed Resource<image>: play/shifter.png
-[INFO] Destroyed Resource<image>: win/floor.png
 [INFO] Destroyed Resource<image>: play/benjamin.png
 [INFO] Destroyed Resource<image>: play/target.png
 [INFO] Destroyed Resource<image>: lose/benjamin-happy.png
 [INFO] Destroyed Resource<image>: play/dice-2.png
-[INFO] Destroyed Resource<image>: play/bullet-7.png
+[INFO] Destroyed Resource<image>: play/turret-2.png
 [INFO] Destroyed Resource<image>: play/explosion-1.png
 [INFO] Destroyed Resource<image>: play/explosion-4.png
+[INFO] Destroyed Resource<image>: play/bullet-11.png
 [INFO] Destroyed Resource<image>: play/explosion-5.png
 [INFO] Destroyed Resource<image>: play/dirty-1.png
-[INFO] Destroyed Resource<image>: play/bullet-8.png
-[INFO] Destroyed Resource<image>: play/turret-2.png
-[INFO] Destroyed Resource<image>: play/shoot-1.png
-[INFO] Destroyed Resource<image>: play/shoot-3.png
-[INFO] Destroyed Resource<image>: play/shoot-4.png
+[INFO] Destroyed Resource<image>: play/bullet-7.png
 [INFO] Destroyed Resource<image>: play/enemy-10.png
-[INFO] Destroyed Resource<image>: win/dirt.png?400x100
 [INFO] Destroyed Resource<font>: pirulen.ttf?48
 [INFO] Destroyed Resource<font>: pirulen.ttf?32
 [INFO] Destroyed Resource<font>: pirulen.ttf?108
@@ -364,4 +275,3 @@
 [INFO] Destroyed Resource<audio>: astronomia.ogg
 [INFO] Destroyed Resource<audio>: play.ogg
 [INFO] Destroyed Resource<audio>: explosion.wav
-[INFO] Destroyed Resource<audio>: win.wav

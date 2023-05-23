@@ -33,6 +33,7 @@
 bool PlayScene::DebugMode = false;
 bool PlayScene::RemoveTurret = false;
 bool PlayScene::MoveTurret = false;
+bool PlayScene::TurretMoving = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
 const int PlayScene::BlockSize = 64;
@@ -281,8 +282,9 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 					preview = new RotateTurret(0, 0);
 				}
 				TowerGroup->RemoveObject(turret->GetObjectIterator());
+				TurretMoving = true;
 			}
-			MoveTurret = false;
+			
 			mapState[y][x] = TILE_FLOOR;
 
 			preview->Position = Engine::GameEngine::GetInstance().GetMousePosition();
@@ -291,6 +293,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			preview->Preview = true;
 			UIGroup->AddNewObject(preview);
 			OnMouseMove(Engine::GameEngine::GetInstance().GetMousePosition().x, Engine::GameEngine::GetInstance().GetMousePosition().y);
+			MoveTurret = false;
 		}
 		else if (RemoveTurret == true) {
 			Engine::LOG() << ("Remove Turret!");
@@ -320,7 +323,10 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				return;
 			}
 			// Purchase.
-			EarnMoney(-preview->GetPrice());
+			if (TurretMoving == false)
+				EarnMoney(-preview->GetPrice());
+			else
+				TurretMoving = false;
 			// Remove Preview.
 			preview->GetObjectIterator()->first = false;
 			UIGroup->RemoveObject(preview->GetObjectIterator());
