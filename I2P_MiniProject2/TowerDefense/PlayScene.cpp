@@ -261,28 +261,36 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 		if (MoveTurret == true) {
 			Engine::LOG() << ("Move Turret!");
 			Turret* turret = FindTurretType(preview->Position.x, preview->Position.y);
+			UIGroup->RemoveObject(preview->GetObjectIterator());
+			preview = nullptr;
 			if (turret != nullptr) {
-				Engine::LOG() << ("Find the turret!");
 				if (turret->type == 0) {
+					Engine::LOG() << ("PlugGun");
 					preview = new PlugGunTurret(0, 0);
 				}
 				else if (turret->type == 1) {
+					Engine::LOG() << ("MachineGun");
 					preview = new MachineGunTurret(0, 0);
 				}
 				else if (turret->type == 2) {
+					Engine::LOG() << ("DoubleMachineGun");
 					preview = new DoubleMachineGunTurret(0, 0);
 				}
 				else if (turret->type == 3) {
+					Engine::LOG() << ("RotateGun");
 					preview = new RotateTurret(0, 0);
 				}
 				TowerGroup->RemoveObject(turret->GetObjectIterator());
 			}
 			MoveTurret = false;
 			mapState[y][x] = TILE_FLOOR;
-			UIGroup->RemoveObject(preview->GetObjectIterator());
-			// Remove Preview.
 
-			OnMouseMove(mx, my);
+			preview->Position = Engine::GameEngine::GetInstance().GetMousePosition();
+			preview->Tint = al_map_rgba(255, 255, 255, 200);
+			preview->Enabled = false;
+			preview->Preview = true;
+			UIGroup->AddNewObject(preview);
+			OnMouseMove(Engine::GameEngine::GetInstance().GetMousePosition().x, Engine::GameEngine::GetInstance().GetMousePosition().y);
 		}
 		else if (RemoveTurret == true) {
 			Engine::LOG() << ("Remove Turret!");
