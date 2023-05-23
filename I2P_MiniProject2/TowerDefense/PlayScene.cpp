@@ -32,6 +32,7 @@
 
 bool PlayScene::DebugMode = false;
 bool PlayScene::RemoveTurret = false;
+bool PlayScene::MoveTurret = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
 const int PlayScene::BlockSize = 64;
@@ -216,6 +217,12 @@ void PlayScene::GenerateEnemy(int x, int y, int type) {
 	//enemy->Update(ticks);
 }
 
+/*Turret* PlayScene::FindTurretType(float x, float y) {
+	for (auto turret : TowerGroup->GetObjects()) {
+
+	}
+}*/
+
 void PlayScene::OnMouseDown(int button, int mx, int my) {
 	if ((button & 1) && !imgTarget->Visible && preview) {
 		// Cancel turret construct.
@@ -243,7 +250,45 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 	const int x = mx / BlockSize;
 	const int y = my / BlockSize;
 	if (button & 1) {
-		if ((mapState[y][x] == TILE_DIRT || mapState[y][x] == TILE_FLOOR) && RemoveTurret == false) {
+		if (MoveTurret == true) {
+			Engine::LOG() << ("Move Turret!");
+			for (auto turret : TowerGroup->GetObjects()) {
+				if (turret->Position.x == preview->Position.x && turret->Position.y == preview->Position.y) {
+					Engine::LOG() << ("Find the turret!");
+					
+					//preview = turret.
+					TowerGroup->RemoveObject(turret->GetObjectIterator());
+					break;
+				}
+			}
+			MoveTurret = false;
+			mapState[y][x] = TILE_FLOOR;
+			UIGroup->RemoveObject(preview->GetObjectIterator());
+			preview = nullptr;
+			// Remove Preview.
+
+			OnMouseMove(mx, my);
+		}
+		else if (RemoveTurret == true) {
+			Engine::LOG() << ("Remove Turret!");
+			for (auto turret : TowerGroup->GetObjects()) {
+				if (turret->Position.x == preview->Position.x && turret->Position.y == preview->Position.y) {
+					Engine::LOG() << ("Find the turret!");
+					TowerGroup->RemoveObject(turret->GetObjectIterator());
+					//EarnMoney(turret->GetObjectIterator);
+					break;
+				}
+			}
+			RemoveTurret = false;
+			mapState[y][x] = TILE_FLOOR;
+
+			// Remove Preview.
+			UIGroup->RemoveObject(preview->GetObjectIterator());
+			preview = nullptr;
+
+			OnMouseMove(mx, my);
+		}
+		else if ((mapState[y][x] == TILE_DIRT || mapState[y][x] == TILE_FLOOR)) {
 			if (!preview)
 				return;
 			// Check if valid.
@@ -279,7 +324,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			preview = nullptr;
 			OnMouseMove(mx, my);
 		}
-		else if(mapState[y][x] == TILE_MACHINEGUN && RemoveTurret == false){
+		else if(mapState[y][x] == TILE_MACHINEGUN){
 			if (preview->type == 1) {
 				Engine::LOG() << "OCCUPIED";
 				EarnMoney(-preview->GetPrice());
@@ -299,6 +344,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				for (auto turret : TowerGroup->GetObjects()) {
 					if (turret->Position.x == preview->Position.x && turret->Position.y == preview->Position.y) {
 						TowerGroup->RemoveObject(turret->GetObjectIterator());
+						break;
 					}
 				}
 				TowerGroup->AddNewObject(new DoubleMachineGunTurret(preview->Position.x, preview->Position.y));
@@ -308,23 +354,6 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				preview = nullptr;
 				OnMouseMove(mx, my);
 			}
-		}
-		else if(RemoveTurret == true){
-			Engine::LOG() << ("Remove Turret!");
-			for (auto turret : TowerGroup->GetObjects()) {
-				if (turret->Position.x  == preview->Position.x && turret->Position.y  == preview->Position.y) {
-					Engine::LOG() << ("Find the turret!");
-					TowerGroup->RemoveObject(turret->GetObjectIterator());
-					//EarnMoney(turret->GetObjectIterator);
-					break;
-				}
-			}
-			RemoveTurret = false;
-			mapState[y][x] = TILE_FLOOR;
-			preview->Update(0);
-			// Remove Preview.
-			preview = nullptr;
-			OnMouseMove(mx, my);
 		}
 	}
 }
@@ -454,6 +483,7 @@ void PlayScene::ConstructUI() {
 	ConstructButton(1, "play/turret-1.png", MachineGunTurret::Price);
 	ConstructButton(2, "play/turret-9.png", RotateTurret::Price);
 	ConstructButton(3, "play/shovel.png", 0);
+	ConstructButton(4, "play/shifter.png", 0);
 	// TODO 3 (3/5): Create a button to support constructing the new turret.
     
 	int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
@@ -466,16 +496,18 @@ void PlayScene::ConstructUI() {
 
 void PlayScene::ConstructButton(int id, std::string sprite, int price) {
 	TurretButton* btn;
-	/*if (id == 3) {
+	if (id >= 3) {
 		btn = new TurretButton("play/floor.png", "play/dirt.png",
-			Engine::Sprite("play/tower-floor.png", 1294 + id * 76, 136, 0, 0, 0, 0),
+			Engine::Sprite("play/floor.png", 1294 + id * 76, 136, 0, 0, 0, 0),
+			Engine::Sprite(sprite, 1294 + (id-3) * 76, 220 - 8, 0, 0, 0, 0)
+			, 1294 + (id-3) * 76, 212, price);
+	}
+	else {
+		btn = new TurretButton("play/floor.png", "play/dirt.png",
+			Engine::Sprite("play/tower-base.png", 1294 + id * 76, 136, 0, 0, 0, 0),
 			Engine::Sprite(sprite, 1294 + id * 76, 136 - 8, 0, 0, 0, 0)
 			, 1294 + id * 76, 136, price);
-	}*/
-	btn = new TurretButton("play/floor.png", "play/dirt.png",
-		Engine::Sprite("play/tower-base.png", 1294 + id * 76, 136, 0, 0, 0, 0),
-		Engine::Sprite(sprite, 1294 + id * 76, 136 - 8, 0, 0, 0, 0)
-		, 1294 + id * 76, 136, price);
+	}
 	// Reference: Class Member Function Pointer and std::bind.
 	btn->SetOnClickCallback(std::bind(&PlayScene::UIBtnClicked, this, id));
 	UIGroup->AddNewControlObject(btn);
@@ -495,6 +527,10 @@ void PlayScene::UIBtnClicked(int id) {
 	if (id == 3) {
 		preview = new Shovel(0, 0);
 		RemoveTurret = true;
+	}
+	if (id == 4) {
+		preview = new Shifter(0, 0);
+		MoveTurret = true;
 	}
 	// TODO 3 (4/5): On the new turret button callback, create the new turret.
 	if (!preview)

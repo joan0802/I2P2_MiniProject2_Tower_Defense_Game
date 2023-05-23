@@ -35,6 +35,7 @@ protected:
 public:
 	static bool DebugMode;
 	static bool RemoveTurret;
+	static bool MoveTurret;
 	static const std::vector<Engine::Point> directions;
 	static const int MapWidth, MapHeight;
 	static const int BlockSize;
@@ -64,6 +65,7 @@ public:
 	std::vector<std::vector<int>> mapDistance;
 	std::list<std::pair<int, float>> enemyWaveData;
 	std::list<int> keyStrokes;
+	Turret* FindTurretType(float x, float y);
 	static Engine::Point GetClientSize();
 	explicit PlayScene() = default;
 	void Initialize() override;

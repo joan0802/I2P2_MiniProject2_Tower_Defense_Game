@@ -36,4 +36,12 @@ public:
     Shovel(float x, float y);
     void CreateBullet() override;
 };
+
+class Shifter : public Turret {
+public:
+    static const int Price;
+    Shifter(float x, float y);
+    void CreateBullet() override;
+};
+
 #endif // PLUGGUNTURRET_HPP
