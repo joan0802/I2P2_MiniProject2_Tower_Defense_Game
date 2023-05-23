@@ -81,10 +81,10 @@ void RotateTurret::CreateBullet() {
     Engine::Point normalized = diff.Normalize();
     // Change bullet position to the front of the gun barrel.
     Engine::LOG() << "Create Bullet";
-    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 36+ Engine::Point(0, -1)*CollisionRadius, Engine::Point(0, -1), 0, this));
-    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 36+ Engine::Point(-1, 0)*CollisionRadius, Engine::Point(-1, 0), 0, this));
-    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 36+ Engine::Point(1, 0)*CollisionRadius, Engine::Point(1, 0), 0, this));
-    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 36+ Engine::Point(0, 1)*CollisionRadius, Engine::Point(0, 1), 0, this));
+    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + Engine::Point(0, -1)*CollisionRadius, Engine::Point(-1, 0), 0, this));
+    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + Engine::Point(-1, 0)*CollisionRadius, Engine::Point(0, 1), 0, this));
+    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + Engine::Point(1, 0)*CollisionRadius, Engine::Point(0, -1), 0, this));
+    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + Engine::Point(0, 1)*CollisionRadius, Engine::Point(1, 0), 0, this));
     // (2/2): Add a ShootEffect here. Remember you need to include the class.
     AudioHelper::PlayAudio("gun.wav");
 }

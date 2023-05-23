@@ -52,8 +52,7 @@ void FireBullet::OnExplode(Enemy* enemy) {
 
 RotateBullet::RotateBullet(Engine::Point position, Engine::Point forwardDirection, float rotation, Turret* parent) :
     Bullet("play/bullet-11.png", 200, 4, position, forwardDirection, rotation - ALLEGRO_PI / 2, parent) {
-    // Engine::Point direc = (parent->Position - Position).Normalize();
-    // forwardDirection = (direc);
+
     // TODO 3 (2/5): You can imitate the 2 files: 'WoodBullet.hpp', 'WoodBullet.cpp' to create a new bullet.
 }
 void RotateBullet::OnExplode(Enemy* enemy) {
@@ -68,10 +67,11 @@ void RotateBullet::Update(float deltaTime) {
     PlayScene* scene = getPlayScene();
     // Can be improved by Spatial Hash, Quad Tree, ...
     // However simply loop through all enemies is enough for this program.
+    Engine::Point direc = (parent->Position - Position).Normalize();
+    direc = direc * speed * speed / 200;
+    Velocity = Velocity + direc * deltaTime;
     for (auto& it : scene->EnemyGroup->GetObjects()) {
-        Engine::Point direc = (parent->Position - Position).Normalize();
-        direc = direc * Velocity.Magnitude() * Velocity.Magnitude() / 200;
-        Velocity = Velocity + direc * deltaTime;
+        
         Enemy* enemy = dynamic_cast<Enemy*>(it);
         if (!enemy->Visible)
             continue;
