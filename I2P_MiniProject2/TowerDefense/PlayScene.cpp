@@ -217,11 +217,19 @@ void PlayScene::GenerateEnemy(int x, int y, int type) {
 	//enemy->Update(ticks);
 }
 
-/*Turret* PlayScene::FindTurretType(float x, float y) {
-	for (auto turret : TowerGroup->GetObjects()) {
-
+Turret* PlayScene::FindTurretType(int x, int y) {
+	for (auto it : TowerGroup->GetObjects()) {
+		Turret* turret = dynamic_cast<Turret*>(it);
+		int TurretX = turret->Position.x / BlockSize;
+		int TurretY = turret->Position.y / BlockSize;
+		Engine::LOG() << TurretX << " and " << x / BlockSize;
+		if (TurretX == x / BlockSize && TurretY == y / BlockSize) {
+			Engine::LOG() << "Find the turret";
+			return turret;
+		}
 	}
-}*/
+	return nullptr;
+}
 
 void PlayScene::OnMouseDown(int button, int mx, int my) {
 	if ((button & 1) && !imgTarget->Visible && preview) {
@@ -252,14 +260,11 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 	if (button & 1) {
 		if (MoveTurret == true) {
 			Engine::LOG() << ("Move Turret!");
-			for (auto turret : TowerGroup->GetObjects()) {
-				if (turret->Position.x == preview->Position.x && turret->Position.y == preview->Position.y) {
-					Engine::LOG() << ("Find the turret!");
-					
-					//preview = turret.
-					TowerGroup->RemoveObject(turret->GetObjectIterator());
-					break;
-				}
+			Turret* turret = FindTurretType(preview->Position.x, preview->Position.y);
+			if (turret != nullptr) {
+				Engine::LOG() << ("Find the turret!");
+				//preview = turret.
+				TowerGroup->RemoveObject(turret->GetObjectIterator());
 			}
 			MoveTurret = false;
 			mapState[y][x] = TILE_FLOOR;
@@ -271,13 +276,11 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 		}
 		else if (RemoveTurret == true) {
 			Engine::LOG() << ("Remove Turret!");
-			for (auto turret : TowerGroup->GetObjects()) {
-				if (turret->Position.x == preview->Position.x && turret->Position.y == preview->Position.y) {
-					Engine::LOG() << ("Find the turret!");
-					TowerGroup->RemoveObject(turret->GetObjectIterator());
-					//EarnMoney(turret->GetObjectIterator);
-					break;
-				}
+			Turret* turret = FindTurretType(preview->Position.x, preview->Position.y);
+			if (turret != nullptr) {
+				Engine::LOG() << ("Find the turret!");
+				EarnMoney(turret->GetPrice()/2);
+				TowerGroup->RemoveObject(turret->GetObjectIterator());
 			}
 			RemoveTurret = false;
 			mapState[y][x] = TILE_FLOOR;

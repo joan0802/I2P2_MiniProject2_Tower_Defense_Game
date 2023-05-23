@@ -81,8 +81,8 @@ void RotateTurret::CreateBullet() {
     // Change bullet position to the front of the gun barrel.
     getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 150, normalized, rotation, this));
     getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position - normalized * 150, normalized, rotation, this));
-    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 150, normalized, rotation, this));
-    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 150, normalized, rotation, this));
+    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 75, normalized, rotation, this));
+    getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + normalized * 75, normalized, rotation, this));
     // (2/2): Add a ShootEffect here. Remember you need to include the class.
     AudioHelper::PlayAudio("gun.wav");
 }
