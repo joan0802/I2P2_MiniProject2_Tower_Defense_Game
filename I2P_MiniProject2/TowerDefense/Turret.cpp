@@ -49,23 +49,25 @@ void Turret::Update(float deltaTime) {
 		}
 	}
 	if (Target) {
-		Engine::Point originRotation = Engine::Point(cos(Rotation - ALLEGRO_PI / 2), sin(Rotation - ALLEGRO_PI / 2));
-		Engine::Point targetRotation = (Target->Position - Position).Normalize();
-		float maxRotateRadian = rotateRadian * deltaTime;
-		float cosTheta = originRotation.Dot(targetRotation);
-		// Might have floating-point precision error.
-		if (cosTheta > 1) cosTheta = 1;
-		else if (cosTheta < -1) cosTheta = -1;
-		float radian = acos(cosTheta);
-		Engine::Point rotation;
-		if (abs(radian) <= maxRotateRadian)
-			rotation = targetRotation;
-		else
-			rotation = ((abs(radian) - maxRotateRadian) * originRotation + maxRotateRadian * targetRotation) / radian;
-		// Add 90 degrees (PI/2 radian), since we assume the image is oriented upward.
-		Rotation = atan2(rotation.y, rotation.x) + ALLEGRO_PI / 2;
+		if (type != 3) {
+			Engine::Point originRotation = Engine::Point(cos(Rotation - ALLEGRO_PI / 2), sin(Rotation - ALLEGRO_PI / 2));
+			Engine::Point targetRotation = (Target->Position - Position).Normalize();
+			float maxRotateRadian = rotateRadian * deltaTime;
+			float cosTheta = originRotation.Dot(targetRotation);
+			// Might have floating-point precision error.
+			if (cosTheta > 1) cosTheta = 1;
+			else if (cosTheta < -1) cosTheta = -1;
+			float radian = acos(cosTheta);
+			Engine::Point rotation;
+			if (abs(radian) <= maxRotateRadian)
+				rotation = targetRotation;
+			else
+				rotation = ((abs(radian) - maxRotateRadian) * originRotation + maxRotateRadian * targetRotation) / radian;
+			// Add 90 degrees (PI/2 radian), since we assume the image is oriented upward.
+			Rotation = atan2(rotation.y, rotation.x) + ALLEGRO_PI / 2;
+			reload -= deltaTime;
+		}
 		// Shoot reload.
-		reload -= deltaTime;
 		if (reload <= 0) {
 			// shoot.
 			reload = coolDown;
@@ -90,3 +92,5 @@ void Turret::Draw() const {
 int Turret::GetPrice() const {
 	return price;
 }
+
+

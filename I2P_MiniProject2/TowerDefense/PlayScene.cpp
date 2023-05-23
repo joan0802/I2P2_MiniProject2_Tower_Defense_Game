@@ -200,17 +200,17 @@ void PlayScene::GenerateEnemy(int x, int y, int type) {
 	//const Engine::Point SpawnCoordinate = Engine::Point(SpawnGridPoint.x , SpawnGridPoint.y * BlockSize + BlockSize / 2);
 	Enemy* enemy = NULL;
 	switch (type) {
-		case 0:
-			EnemyGroup->AddNewObject(enemy = new RedNormalEnemy(x, y));
-			break;
-		case 1:
-			EnemyGroup->AddNewObject(enemy = new DiceEnemy(x, y));
-			break;
-		case 2:
-			EnemyGroup->AddNewObject(enemy = new TwoDiceEnemy(x, y));
-			break;
-		default:
-			break;
+	case 0:
+		EnemyGroup->AddNewObject(enemy = new RedNormalEnemy(x, y));
+		break;
+	case 1:
+		EnemyGroup->AddNewObject(enemy = new DiceEnemy(x, y));
+		break;
+	case 2:
+		EnemyGroup->AddNewObject(enemy = new TwoDiceEnemy(x, y));
+		break;
+	default:
+		break;
 	}
 	enemy->UpdatePath(mapDistance);
 	// Compensate the time lost.
@@ -220,10 +220,10 @@ void PlayScene::GenerateEnemy(int x, int y, int type) {
 Turret* PlayScene::FindTurretType(int x, int y) {
 	for (auto it : TowerGroup->GetObjects()) {
 		Turret* turret = dynamic_cast<Turret*>(it);
-		int TurretX = turret->Position.x / BlockSize;
-		int TurretY = turret->Position.y / BlockSize;
-		Engine::LOG() << TurretX << " and " << x / BlockSize;
-		if (TurretX == x / BlockSize && TurretY == y / BlockSize) {
+		int turretX = turret->Position.x / BlockSize;
+		int turretY = turret->Position.y / BlockSize;
+		Engine::LOG() << turretX << " and " << x / BlockSize;
+		if (turretX == x / BlockSize && turretY == y / BlockSize) {
 			Engine::LOG() << "Find the turret";
 			return turret;
 		}
@@ -263,13 +263,23 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			Turret* turret = FindTurretType(preview->Position.x, preview->Position.y);
 			if (turret != nullptr) {
 				Engine::LOG() << ("Find the turret!");
-				//preview = turret.
+				if (turret->type == 0) {
+					preview = new PlugGunTurret(0, 0);
+				}
+				else if (turret->type == 1) {
+					preview = new MachineGunTurret(0, 0);
+				}
+				else if (turret->type == 2) {
+					preview = new DoubleMachineGunTurret(0, 0);
+				}
+				else if (turret->type == 3) {
+					preview = new RotateTurret(0, 0);
+				}
 				TowerGroup->RemoveObject(turret->GetObjectIterator());
 			}
 			MoveTurret = false;
 			mapState[y][x] = TILE_FLOOR;
 			UIGroup->RemoveObject(preview->GetObjectIterator());
-			preview = nullptr;
 			// Remove Preview.
 
 			OnMouseMove(mx, my);

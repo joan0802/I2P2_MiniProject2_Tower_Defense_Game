@@ -53,7 +53,7 @@ void Enemy::Hit(float damage) {
 			it->Target = nullptr;
 		for (auto& it: lockedBullets)
 			it->Target = nullptr;
-		if (type == 2) {
+		if (type == 2 && !path.empty()) {
 			Engine::LOG() << "Type == 2";
 			getPlayScene()->GenerateEnemy(Position.x, Position.y, 1);
 		}

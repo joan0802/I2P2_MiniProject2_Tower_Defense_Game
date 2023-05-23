@@ -71,6 +71,7 @@ const int RotateTurret::Price = 70;
 RotateTurret::RotateTurret(float x, float y) :
     // TODO 3 (1/5): You can imitate the 2 files: 'PlugGunTurret.hpp', 'PlugGunTurret.cpp' to create a new turret.
     Turret("play/tower-base.png", "play/turret-9.png", x, y, 200, Price, 100000000, 3, 4) {
+    Enabled = false;
     // Move center downward, since we the turret head is slightly biased upward
     //Anchor.y += 8.0f / GetBitmapHeight();
 }
