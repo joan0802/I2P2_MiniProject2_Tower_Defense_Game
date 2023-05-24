@@ -41,3 +41,7 @@ void Bullet::Update(float deltaTime) {
 	if (!Engine::Collider::IsRectOverlap(Position - Size / 2, Position + Size / 2, Engine::Point(0, 0), PlayScene::GetClientSize()))
 		getPlayScene()->BulletGroup->RemoveObject(objectIterator);
 }
+
+Turret* Bullet::GetParent() {
+	return parent;
+}

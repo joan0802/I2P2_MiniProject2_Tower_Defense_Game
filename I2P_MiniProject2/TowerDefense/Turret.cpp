@@ -28,7 +28,6 @@ void Turret::Update(float deltaTime) {
 	if (!Enabled)
 		return;
 	if (type == 3 && cnt <= 0) {
-		Engine::LOG() << "Create Rotate Bullet";
 		// shoot.
 		reload = coolDown;
 		CreateBullet();
@@ -75,7 +74,7 @@ void Turret::Update(float deltaTime) {
 		}
 		reload -= deltaTime;
 		// Shoot reload.
-		if (reload <= 0 && type != 3) {
+		if (reload <= 0) {
 			// shoot.
 			reload = coolDown;
 			CreateBullet();

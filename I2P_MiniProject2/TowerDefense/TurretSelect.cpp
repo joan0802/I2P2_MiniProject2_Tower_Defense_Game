@@ -80,9 +80,9 @@ void RotateTurret::CreateBullet() {
     float rotation = atan2(diff.y, diff.x);
     Engine::Point normalized = diff.Normalize();
     // Change bullet position to the front of the gun barrel.
-    Engine::LOG() << "Create Bullet";
     if (cnt <= 0) {
         cnt = 4;
+        Engine::LOG() << "Create Rotate Bullet";
         getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + Engine::Point(0, -1) * CollisionRadius, Engine::Point(-1, 0), 0, this));
         getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + Engine::Point(-1, 0) * CollisionRadius, Engine::Point(0, 1), 0, this));
         getPlayScene()->BulletGroup->AddNewObject(new RotateBullet(Position + Engine::Point(1, 0) * CollisionRadius, Engine::Point(0, -1), 0, this));

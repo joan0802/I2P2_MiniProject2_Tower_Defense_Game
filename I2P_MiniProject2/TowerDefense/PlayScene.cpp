@@ -18,6 +18,7 @@
 #include "Image.hpp"
 #include "Label.hpp"
 // Turret
+#include "BulletSelect.hpp"
 #include "TurretSelect.hpp"
 #include "Plane.hpp"
 // Enemy
@@ -266,6 +267,12 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			preview = nullptr;
 			if (turret != nullptr) {
 				int turret_type = turret->type;
+				for (auto it : BulletGroup->GetObjects()) {
+					Bullet* bullet = dynamic_cast<Bullet*>(it);
+					if (bullet->GetParent() == turret) {
+						BulletGroup->RemoveObject(bullet->GetObjectIterator());
+					}
+				}
 				TowerGroup->RemoveObject(turret->GetObjectIterator());
 				turret = nullptr;
 				
@@ -303,8 +310,13 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			Engine::LOG() << ("Remove Turret!");
 			Turret* turret = FindTurretType(preview->Position.x, preview->Position.y);
 			if (turret != nullptr) {
-				Engine::LOG() << ("Find the turret!");
 				EarnMoney(turret->GetPrice()/2);
+				for (auto it : BulletGroup->GetObjects()) {
+					Bullet* bullet = dynamic_cast<Bullet*>(it);
+					if (bullet->GetParent() == turret) {
+						BulletGroup->RemoveObject(bullet->GetObjectIterator());
+					}
+				}
 				TowerGroup->RemoveObject(turret->GetObjectIterator());
 			}
 			RemoveTurret = false;

@@ -66,15 +66,14 @@ void RotateBullet::OnExplode(Enemy* enemy) {
 void RotateBullet::Update(float deltaTime) {
     Sprite::Update(deltaTime);
     PlayScene* scene = getPlayScene();
+    bool HitEnemy = false;
+    Turret* pa = nullptr;
     // Can be improved by Spatial Hash, Quad Tree, ...
     // However simply loop through all enemies is enough for this program.
     Engine::Point direc = (parent->Position - Position).Normalize();
     direc = direc * speed * speed / 150;
     Velocity = Velocity + direc * deltaTime;
-    if (parent == nullptr) {
-        Engine::LOG() << "parent is nullptr";
-        getPlayScene()->BulletGroup->RemoveObject(objectIterator);
-    }
+    Engine::LOG() << parent->cnt;
     for (auto& it : scene->EnemyGroup->GetObjects()) {
         
         Enemy* enemy = dynamic_cast<Enemy*>(it);
@@ -83,10 +82,15 @@ void RotateBullet::Update(float deltaTime) {
         if (Engine::Collider::IsCircleOverlap(Position, CollisionRadius, enemy->Position, enemy->CollisionRadius)) {
             OnExplode(enemy);
             enemy->Hit(damage);
-            this->parent->cnt--;
+            HitEnemy = true;
+            pa = parent;
             getPlayScene()->BulletGroup->RemoveObject(objectIterator);
-            return;
+            break;
         }
+    }
+    if (HitEnemy == true) {
+        pa->cnt--;
+        return;
     }
     // Check if out of boundary.
     if (!Engine::Collider::IsRectOverlap(Position - Size / 2, Position + Size / 2, Engine::Point(0, 0), PlayScene::GetClientSize()))
