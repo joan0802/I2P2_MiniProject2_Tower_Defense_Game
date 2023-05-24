@@ -9,6 +9,7 @@
 #include "BulletSelect.hpp"
 #include "Group.hpp"
 #include "PlayScene.hpp"
+#include "LOG.hpp"
 #include "Point.hpp"
 #include "Bullet.hpp"
 
@@ -68,8 +69,12 @@ void RotateBullet::Update(float deltaTime) {
     // Can be improved by Spatial Hash, Quad Tree, ...
     // However simply loop through all enemies is enough for this program.
     Engine::Point direc = (parent->Position - Position).Normalize();
-    direc = direc * speed * speed / 200;
+    direc = direc * speed * speed / 150;
     Velocity = Velocity + direc * deltaTime;
+    if (parent == nullptr) {
+        Engine::LOG() << "parent is nullptr";
+        getPlayScene()->BulletGroup->RemoveObject(objectIterator);
+    }
     for (auto& it : scene->EnemyGroup->GetObjects()) {
         
         Enemy* enemy = dynamic_cast<Enemy*>(it);
@@ -78,6 +83,7 @@ void RotateBullet::Update(float deltaTime) {
         if (Engine::Collider::IsCircleOverlap(Position, CollisionRadius, enemy->Position, enemy->CollisionRadius)) {
             OnExplode(enemy);
             enemy->Hit(damage);
+            this->parent->cnt--;
             getPlayScene()->BulletGroup->RemoveObject(objectIterator);
             return;
         }

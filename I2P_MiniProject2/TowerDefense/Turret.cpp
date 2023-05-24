@@ -8,6 +8,7 @@
 #include "Group.hpp"
 #include "IObject.hpp"
 #include "IScene.hpp"
+#include "LOG.hpp"
 #include "PlayScene.hpp"
 #include "Point.hpp"
 #include "Turret.hpp"
@@ -26,6 +27,12 @@ void Turret::Update(float deltaTime) {
 	imgBase.Tint = Tint;
 	if (!Enabled)
 		return;
+	if (type == 3 && cnt <= 0) {
+		Engine::LOG() << "Create Rotate Bullet";
+		// shoot.
+		reload = coolDown;
+		CreateBullet();
+	}
 	if (Target) {
 		Engine::Point diff = Target->Position - Position;
 		if (diff.Magnitude() > CollisionRadius) {
@@ -68,14 +75,11 @@ void Turret::Update(float deltaTime) {
 		}
 		reload -= deltaTime;
 		// Shoot reload.
-		if (reload <= 0) {
+		if (reload <= 0 && type != 3) {
 			// shoot.
 			reload = coolDown;
 			CreateBullet();
 		}
-		/*else if (cnt <= 0 && type == 3) {
-			CreateBullet();
-		}*/
 	}
 }
 void Turret::Draw() const {

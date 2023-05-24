@@ -2,6 +2,7 @@
 #include "Collider.hpp"
 #include "Enemy.hpp"
 #include "GameEngine.hpp"
+#include "TurretSelect.hpp"
 #include "Group.hpp"
 #include "IObject.hpp"
 #include "IScene.hpp"

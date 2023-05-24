@@ -1,7 +1,7 @@
 [INFO] Game Initializing...
 [INFO] Loaded Resource<image>: resources/images/icon.png
 [INFO] Loaded window icon from: icon.png
-[INFO] There are total 8 supported mouse buttons
+[INFO] There are total 2 supported mouse buttons
 [INFO] Allegro5 initialized
 [INFO] Game begin
 [INFO] Loaded Resource<image>: resources/images/start_scene/out.png scaled to 400x100
@@ -37,44 +37,90 @@
 [INFO] Created<sample_instance>: resources/audios/play.ogg
 [INFO] Changed to play scene
 [INFO] Loaded Resource<image>: resources/images/play/dice-2.png
-[INFO] Loaded Resource<image>: resources/images/play/enemy-10.png
-[INFO] Loaded Resource<image>: resources/images/play/dice-1.png
+[DEBUGGING] Move Turret!
+[DEBUGGING] Move Turret!
+[INFO] Loaded Resource<image>: resources/images/play/target-invalid.png
+[DEBUGGING] Move Turret!
+[DEBUGGING] 15 and 15
+[DEBUGGING] Find the turret
+[DEBUGGING] PlugGun
+[DEBUGGING] Move Turret!
+[DEBUGGING] 15 and 15
+[DEBUGGING] Find the turret
+[DEBUGGING] PlugGun
+[INFO] Loaded Resource<image>: resources/images/play/bullet-8.png
+[INFO] Loaded Resource<image>: resources/images/play/shoot-1.png
+[INFO] Loaded Resource<image>: resources/images/play/shoot-2.png
+[INFO] Loaded Resource<image>: resources/images/play/shoot-3.png
+[INFO] Loaded Resource<image>: resources/images/play/shoot-4.png
+[INFO] Loaded Resource<audio>: resources/audios/gun.wav
+[DEBUGGING] Move Turret!
+[DEBUGGING] 15 and 15
+[DEBUGGING] Find the turret
+[DEBUGGING] PlugGun
+[INFO] Loaded Resource<image>: resources/images/play/dirty-1.png
+[DEBUGGING] Create Rotate Bullet
 [DEBUGGING] Create Bullet
 [INFO] Loaded Resource<image>: resources/images/play/bullet-11.png
-[INFO] Loaded Resource<audio>: resources/audios/gun.wav
 [INFO] Loaded Resource<image>: resources/images/play/dirty-2.png
-[DEBUGGING] Create Bullet
+[INFO] Loaded Resource<image>: resources/images/play/enemy-10.png
 [INFO] Loaded Resource<image>: resources/images/play/explosion-1.png
 [INFO] Loaded Resource<image>: resources/images/play/explosion-2.png
 [INFO] Loaded Resource<image>: resources/images/play/explosion-3.png
 [INFO] Loaded Resource<image>: resources/images/play/explosion-4.png
 [INFO] Loaded Resource<image>: resources/images/play/explosion-5.png
 [INFO] Loaded Resource<image>: resources/images/play/dirty-3.png
-[INFO] Loaded Resource<image>: resources/images/play/dirty-1.png
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
+[INFO] Loaded Resource<image>: resources/images/play/dice-1.png
 [INFO] Loaded Resource<audio>: resources/audios/explosion.wav
+[DEBUGGING] hp <= 0
+[DEBUGGING] Create Rotate Bullet
+[DEBUGGING] Create Bullet
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] Create Rotate Bullet
 [DEBUGGING] Create Bullet
 [DEBUGGING] hp <= 0
 [DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] Create Rotate Bullet
+[DEBUGGING] Create Bullet
+[DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] hp <= 0
+[DEBUGGING] Move Turret!
+[DEBUGGING] 15 and 17
+[DEBUGGING] 17 and 17
+[DEBUGGING] Find the turret
+[DEBUGGING] RotateGun
+[DEBUGGING] Create Rotate Bullet
 [DEBUGGING] Create Bullet
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
+[DEBUGGING] Create Rotate Bullet
+[DEBUGGING] Create Bullet
 [DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] Create Rotate Bullet
 [DEBUGGING] Create Bullet
 [DEBUGGING] hp <= 0
 [DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
+[DEBUGGING] Create Rotate Bullet
+[DEBUGGING] Create Bullet
 [DEBUGGING] hp <= 0
+[DEBUGGING] Type == 2
 [DEBUGGING] hp <= 0
-[DEBUGGING] hp <= 0
-[INFO] Created<sample_instance>: resources/audios/astronomia.ogg
+[DEBUGGING] Type == 2
+[DEBUGGING] Create Rotate Bullet
 [DEBUGGING] Create Bullet
 [INFO] Game Terminating...
 [INFO] stopped audio (sample)
 [INFO] stopped audio (bgm)
-[INFO] stopped audio (sample)
 [INFO] Game terminated
 [INFO] Game end
 [INFO] Destroyed Resource<image>: play/dirty-3.png
@@ -96,6 +142,7 @@
 [INFO] Destroyed Resource<image>: play/sand.png?320x832
 [INFO] Destroyed Resource<image>: play/tower-base.png
 [INFO] Destroyed Resource<image>: play/floor.png
+[INFO] Destroyed Resource<image>: play/shoot-2.png
 [INFO] Destroyed Resource<image>: play/turret-1.png
 [INFO] Destroyed Resource<image>: play/turret-9.png
 [INFO] Destroyed Resource<image>: play/shovel.png
@@ -104,12 +151,17 @@
 [INFO] Destroyed Resource<image>: play/target.png
 [INFO] Destroyed Resource<image>: lose/benjamin-happy.png
 [INFO] Destroyed Resource<image>: play/dice-2.png
-[INFO] Destroyed Resource<image>: play/enemy-10.png
+[INFO] Destroyed Resource<image>: play/shoot-3.png
+[INFO] Destroyed Resource<image>: play/target-invalid.png
+[INFO] Destroyed Resource<image>: play/bullet-8.png
+[INFO] Destroyed Resource<image>: play/shoot-1.png
+[INFO] Destroyed Resource<image>: play/shoot-4.png
+[INFO] Destroyed Resource<image>: play/dirty-1.png
 [INFO] Destroyed Resource<image>: play/explosion-5.png
 [INFO] Destroyed Resource<image>: play/bullet-11.png
+[INFO] Destroyed Resource<image>: play/enemy-10.png
 [INFO] Destroyed Resource<image>: play/explosion-1.png
 [INFO] Destroyed Resource<image>: play/explosion-4.png
-[INFO] Destroyed Resource<image>: play/dirty-1.png
 [INFO] Destroyed Resource<font>: pirulen.ttf?48
 [INFO] Destroyed Resource<font>: pirulen.ttf?32
 [INFO] Destroyed Resource<font>: pirulen.ttf?108
