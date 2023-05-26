@@ -279,27 +279,35 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				
 				if (turret_type == 0) {
 					Engine::LOG() << ("PlugGun");
+					mapState[y][x] = TILE_FLOOR;
 					preview = new PlugGunTurret(0, 0);
 				}
 				else if (turret_type == 1) {
 					Engine::LOG() << ("MachineGun");
+					mapState[y][x] = TILE_FLOOR;
 					preview = new MachineGunTurret(0, 0);
 				}
 				else if (turret_type == 2) {
 					Engine::LOG() << ("DoubleMachineGun");
+					mapState[y][x] = TILE_FLOOR;
 					preview = new DoubleMachineGunTurret(0, 0);
 				}
 				else if (turret_type == 3) {
 					Engine::LOG() << ("RotateGun");
+					mapState[y][x] = TILE_FLOOR;
 					preview = new RotateTurret(0, 0);
 				}
 				else if (turret_type == 6) {
 					preview = new Bomb(0, 0);
+					mapState[y][x] = TILE_DIRT;
 				}
 				TurretMoving = true;
 			}
 			if (preview != nullptr) {
-				mapState[y][x] = TILE_FLOOR;
+				if (preview->type == 6)
+					mapState[y][x] = TILE_DIRT;
+				else
+					mapState[y][x] = TILE_FLOOR;
 
 				preview->Position = Engine::GameEngine::GetInstance().GetMousePosition();
 				preview->Tint = al_map_rgba(255, 255, 255, 200);
@@ -336,18 +344,23 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			if (!preview)
 				return;
 			// Check if valid.
-			if (!CheckSpaceValid(x, y) && preview->type != 6) {
+			Engine::LOG() << preview->type;
+			if(!CheckBombValid(x, y) && preview->type == 6){
 				Engine::Sprite* sprite;
+				Engine::LOG() << "type = 6";
 				GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
 				sprite->Rotation = 0;
 				return;
 			}
-			else if(!CheckBombValid(x, y) && preview->type == 6){
-				Engine::Sprite* sprite;
-				GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
-				sprite->Rotation = 0;
-				return;
-			}
+			else if (preview->type != 6) {
+				if (!CheckSpaceValid(x, y)) {
+					Engine::Sprite* sprite;
+					Engine::LOG() << "type != 6";
+					GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
+					sprite->Rotation = 0;
+					return;
+				}
+			} 
 			// Purchase.
 			if (TurretMoving == false)
 				EarnMoney(-preview->GetPrice());
@@ -363,6 +376,9 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			}
 			else if(preview->type != 6){
 				mapState[y][x] = TILE_OCCUPIED;
+			}
+			else {
+				mapState[y][x] = TILE_DIRT;
 			}
 
 			preview->Position.x = x * BlockSize + BlockSize / 2;
@@ -586,7 +602,7 @@ void PlayScene::UIBtnClicked(int id) {
 		preview = new Shifter(0, 0);
 		MoveTurret = true;
 	}
-	if (id == 5) 
+	if (id == 5 && money >= Bomb::Price)
 		preview = new Bomb(0, 0);
 	// TODO 3 (4/5): On the new turret button callback, create the new turret.
 	if (!preview)
@@ -606,8 +622,11 @@ bool PlayScene::CheckSpaceValid(int x, int y) {
 	mapState[y][x] = TILE_OCCUPIED;
 	std::vector<std::vector<int>> map = CalculateBFSDistance();
 	mapState[y][x] = map00;
-	if (map[0][0] == -1)
+	if (map[0][0] == -1) {
+		Engine::LOG() << "Condition1";
 		return false;
+	}
+		
 	for (auto& it : EnemyGroup->GetObjects()) {
 		Engine::Point pnt;
 		pnt.x = floor(it->Position.x / BlockSize);
@@ -616,8 +635,11 @@ bool PlayScene::CheckSpaceValid(int x, int y) {
 		if (pnt.x >= MapWidth) pnt.x = MapWidth - 1;
 		if (pnt.y < 0) pnt.y = 0;
 		if (pnt.y >= MapHeight) pnt.y = MapHeight - 1;
-		if (map[pnt.y][pnt.x] == -1)
+		if (map[pnt.y][pnt.x] == -1) {
+			Engine::LOG() << "Condition2";
 			return false;
+		}
+			
 	}
 	// All enemy have path to exit.
 	mapState[y][x] = TILE_OCCUPIED;
