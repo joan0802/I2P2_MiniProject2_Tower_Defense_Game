@@ -113,6 +113,9 @@
     <ClInclude Include="TowerDefense\EnemySelect.hpp">
       <Filter>來源檔案\標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="TowerDefense\Bomb.hpp">
+      <Filter>來源檔案\標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -218,6 +221,9 @@
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
     <ClCompile Include="TowerDefense\EnemySelect.cpp">
+      <Filter>來源檔案\資源檔</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerDefense\Bomb.cpp">
       <Filter>來源檔案\資源檔</Filter>
     </ClCompile>
   </ItemGroup>

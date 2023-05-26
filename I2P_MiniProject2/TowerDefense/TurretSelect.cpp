@@ -103,7 +103,7 @@ void Shovel::CreateBullet() {}
 const int Shifter::Price = 0;
 Shifter::Shifter(float x, float y) :
     // TODO 3 (1/5): You can imitate the 2 files: 'PlugGunTurret.hpp', 'PlugGunTurret.cpp' to create a new turret.
-    Turret("play/floor.png", "play/shifter.png", x, y, 0, Price, 0, 4, 0) {
+    Turret("play/floor.png", "play/shifter.png", x, y, 0, Price, 0, 5, 0) {
     // Move center downward, since we the turret head is slightly biased upward
     //Anchor.y += 8.0f / GetBitmapHeight();
 }

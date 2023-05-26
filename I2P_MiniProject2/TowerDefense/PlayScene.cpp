@@ -21,6 +21,7 @@
 #include "BulletSelect.hpp"
 #include "TurretSelect.hpp"
 #include "Plane.hpp"
+#include "Bomb.hpp"
 // Enemy
 #include "EnemySelect.hpp"
 #include "PlayScene.hpp"
@@ -292,6 +293,9 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 					Engine::LOG() << ("RotateGun");
 					preview = new RotateTurret(0, 0);
 				}
+				else if (turret_type == 6) {
+					preview = new Bomb(0, 0);
+				}
 				TurretMoving = true;
 			}
 			if (preview != nullptr) {
@@ -332,7 +336,13 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			if (!preview)
 				return;
 			// Check if valid.
-			if (!CheckSpaceValid(x, y)) {
+			if (!CheckSpaceValid(x, y) && preview->type != 6) {
+				Engine::Sprite* sprite;
+				GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
+				sprite->Rotation = 0;
+				return;
+			}
+			else if(!CheckBombValid(x, y) && preview->type == 6){
 				Engine::Sprite* sprite;
 				GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
 				sprite->Rotation = 0;
@@ -351,7 +361,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			if (preview->type == 1) {
 				mapState[y][x] = TILE_MACHINEGUN;
 			}
-			else {
+			else if(preview->type != 6){
 				mapState[y][x] = TILE_OCCUPIED;
 			}
 
@@ -527,6 +537,7 @@ void PlayScene::ConstructUI() {
 	ConstructButton(2, "play/turret-9.png", RotateTurret::Price);
 	ConstructButton(3, "play/shovel.png", 0);
 	ConstructButton(4, "play/shifter.png", 0);
+	ConstructButton(5, "play/bomb64.png", Bomb::Price);
 	// TODO 3 (3/5): Create a button to support constructing the new turret.
     
 	int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
@@ -575,6 +586,8 @@ void PlayScene::UIBtnClicked(int id) {
 		preview = new Shifter(0, 0);
 		MoveTurret = true;
 	}
+	if (id == 5) 
+		preview = new Bomb(0, 0);
 	// TODO 3 (4/5): On the new turret button callback, create the new turret.
 	if (!preview)
 		return;
@@ -613,6 +626,18 @@ bool PlayScene::CheckSpaceValid(int x, int y) {
 		dynamic_cast<Enemy*>(it)->UpdatePath(mapDistance);
 	return true;
 }
+
+bool PlayScene::CheckBombValid(int x, int y) {
+	if (x < 0 || x >= MapWidth || y < 0 || y >= MapHeight)
+		return false;
+	if (mapState[y][x] == TILE_DIRT) {
+		return true;
+	}
+	else
+		return false;
+	// All enemy have path to exit.
+}
+
 std::vector<std::vector<int>> PlayScene::CalculateBFSDistance() {
 	// Reverse BFS to find path.
 	std::vector<std::vector<int>> map(MapHeight, std::vector<int>(std::vector<int>(MapWidth, -1)));

@@ -23,7 +23,8 @@ private:
 		TILE_DIRT,
 		TILE_FLOOR,
 		TILE_OCCUPIED,
-		TILE_MACHINEGUN
+		TILE_MACHINEGUN,
+		TILE_BOMB
 	};
 	ALLEGRO_SAMPLE_ID bgmId;
 	std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> deathBGMInstance;
@@ -87,6 +88,7 @@ public:
 	void ConstructButton(int id, std::string sprite, int price);
 	void UIBtnClicked(int id);
 	bool CheckSpaceValid(int x, int y);
+	bool CheckBombValid(int x, int y);
 	std::vector<std::vector<int>> CalculateBFSDistance();
 	// void ModifyReadMapTiles();
 };

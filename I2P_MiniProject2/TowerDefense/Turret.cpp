@@ -32,7 +32,7 @@ void Turret::Update(float deltaTime) {
 		reload = coolDown;
 		CreateBullet();
 	}
-	if (Target) {
+	if (Target && type != 6) {
 		Engine::Point diff = Target->Position - Position;
 		if (diff.Magnitude() > CollisionRadius) {
 			Target->lockedTurrets.erase(lockedTurretIterator);
@@ -55,7 +55,7 @@ void Turret::Update(float deltaTime) {
 		}
 	}
 	if (Target) {
-		if (type != 3) {
+		if (type != 3 && type != 6) {
 			Engine::Point originRotation = Engine::Point(cos(Rotation - ALLEGRO_PI / 2), sin(Rotation - ALLEGRO_PI / 2));
 			Engine::Point targetRotation = (Target->Position - Position).Normalize();
 			float maxRotateRadian = rotateRadian * deltaTime;
