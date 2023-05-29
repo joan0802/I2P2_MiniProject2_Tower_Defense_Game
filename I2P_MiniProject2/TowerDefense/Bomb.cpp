@@ -26,7 +26,7 @@ PlayScene* Bomb::getPlayScene() {
 const int Bomb::Price = 80;
 Bomb::Bomb(float x, float y) :
     // TODO 3 (1/5): You can imitate the 2 files: 'PlugGunTurret.hpp', 'PlugGunTurret.cpp' to create a new turret.
-    Turret("play/dirt.png", "play/bomb64.png", x, y, 1.5 * 64, Price, 1.5, 6, 1) {
+    Turret("play/blank.png", "play/bomb64.png", x, y, 1.5 * 64, Price, 1.5, 6, 1) {
     // Move center downward, since we the turret head is slightly biased upward
     Anchor.y += 8.0f / GetBitmapHeight();
 }

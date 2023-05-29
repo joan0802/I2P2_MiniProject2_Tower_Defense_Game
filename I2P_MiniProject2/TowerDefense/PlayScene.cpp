@@ -323,6 +323,11 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			Turret* turret = FindTurretType(preview->Position.x, preview->Position.y);
 			if (turret != nullptr) {
 				EarnMoney(turret->GetPrice()/2);
+				if (turret->type == 6) {
+					mapState[y][x] = TILE_DIRT;
+				}
+				else
+					mapState[y][x] = TILE_FLOOR;
 				for (auto it : BulletGroup->GetObjects()) {
 					Bullet* bullet = dynamic_cast<Bullet*>(it);
 					if (bullet->GetParent() == turret) {
@@ -332,7 +337,6 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				TowerGroup->RemoveObject(turret->GetObjectIterator());
 			}
 			RemoveTurret = false;
-			mapState[y][x] = TILE_FLOOR;
 
 			// Remove Preview.
 			UIGroup->RemoveObject(preview->GetObjectIterator());
@@ -376,9 +380,6 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			}
 			else if(preview->type != 6){
 				mapState[y][x] = TILE_OCCUPIED;
-			}
-			else {
-				mapState[y][x] = TILE_DIRT;
 			}
 
 			preview->Position.x = x * BlockSize + BlockSize / 2;
@@ -568,9 +569,9 @@ void PlayScene::ConstructButton(int id, std::string sprite, int price) {
 	TurretButton* btn;
 	if (id >= 3) {
 		btn = new TurretButton("play/floor.png", "play/dirt.png",
-			Engine::Sprite("play/floor.png", 1294 + id * 76, 136, 0, 0, 0, 0),
-			Engine::Sprite(sprite, 1294 + (id-3) * 76, 220 - 8, 0, 0, 0, 0)
-			, 1294 + (id-3) * 76, 212, price);
+			Engine::Sprite("play/blank.png", 1294 + (id-3) * 76, 220, 0, 0, 0, 0),
+			Engine::Sprite(sprite, 1294 + (id-3) * 76, 220 - 3, 0, 0, 0, 0)
+			, 1294 + (id-3) * 76, 220, price);
 	}
 	else {
 		btn = new TurretButton("play/floor.png", "play/dirt.png",
@@ -623,7 +624,6 @@ bool PlayScene::CheckSpaceValid(int x, int y) {
 	std::vector<std::vector<int>> map = CalculateBFSDistance();
 	mapState[y][x] = map00;
 	if (map[0][0] == -1) {
-		Engine::LOG() << "Condition1";
 		return false;
 	}
 		
@@ -636,7 +636,6 @@ bool PlayScene::CheckSpaceValid(int x, int y) {
 		if (pnt.y < 0) pnt.y = 0;
 		if (pnt.y >= MapHeight) pnt.y = MapHeight - 1;
 		if (map[pnt.y][pnt.x] == -1) {
-			Engine::LOG() << "Condition2";
 			return false;
 		}
 			
